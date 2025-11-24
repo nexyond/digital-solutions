@@ -1,9 +1,9 @@
-// --- Language Translation Data ---
 const translations = {
     en: {
         title: "Nexyond | Digital Solutions",
         nav: {
             services: "Services",
+            softwares: "Software & Tools",
             products: "Digital Products",
             ai_models: "Our AI Models",
             contact: "Contact"
@@ -24,6 +24,23 @@ const translations = {
             item3_desc: "Logo, Business Card, and Corporate Identity work.",
             item4_title: "Artificial Intelligence Solutions",
             item4_desc: "Prompt engineering, AI character development, and automation systems."
+        },
+        softwares: {
+            title: "Software & Tools",
+            item1_title: "QR Code Generator",
+            item1_desc: "Quickly convert any text or link into a customizable QR code.",
+            item2_title: "AI Text Summarizer",
+            item2_desc: "Effortlessly condense long articles or documents into concise summaries.",
+ 
+            item3_title: "Unit Converter",
+            item4_title: "Color Palette Generator",
+            item5_title: "Image Resizer & Compressor",
+            item6_title: "Code Formatter & Beautifier",
+            item7_title: "JSON / XML Viewer & Formatter",
+            item8_title: "URL Encoder & Decoder",
+            item9_title: "Base 64 Encoder & Decoder",
+            item10_title: "Text Case Converter",
+            item11_title: "Password Strength Tester"
         },
         products: {
             title: "Digital Store",
@@ -50,6 +67,7 @@ const translations = {
         title: "Nexyond | Dijital Çözümler",
         nav: {
             services: "Hizmetler",
+            softwares: "Yazılımlar & Araçlar",
             products: "Dijital Ürünler",
             ai_models: "Yapay Zeka Modellerimiz",
             contact: "İletişim"
@@ -70,6 +88,22 @@ const translations = {
             item3_desc: "Logo, Kartvizit ve Kurumsal Kimlik çalışmaları.",
             item4_title: "Yapay Zeka Çözümleri",
             item4_desc: "Prompt mühendisliği, yapay zeka karakter geliştirme ve otomasyon sistemleri."
+        },
+        softwares: {
+            title: "Yazılımlar & Araçlar",
+            item1_title: "QR Kod Oluşturucu",
+            item1_desc: "Herhangi bir metni veya bağlantıyı hızlıca özelleştirilebilir bir QR koda dönüştürün.",
+            item2_title: "YZ Metin Özetleyici",
+            item2_desc: "Uzun makaleleri veya belgeleri zahmetsizce kısa özetlere yoğunlaştırın.",
+            item3_title: "Birim Çevirici",
+            item4_title: "Renk Paleti Oluşturucu",
+            item5_title: "Görsel Boyutlandırıcı & Sıkıştırıcı",
+            item6_title: "Kod Biçimlendirici & Güzelleştirici",
+            item7_title: "JSON / XML Görüntüleyici & Biçimlendirici",
+            item8_title: "URL Kodlayıcı & Çözücü",
+            item9_title: "Base 64 Kodlayıcı & Çözücü",
+            item10_title: "Metin Büyüklük/Küçüklük Dönüştürücü",
+            item11_title: "Şifre Güç Testi"
         },
         products: {
             title: "Dijital Mağaza",
@@ -94,35 +128,31 @@ const translations = {
     }
 };
 
-let currentLang = 'en'; // Default language
+let currentLang = 'en';
 
-// Function to safely get nested translation strings
 function getTranslation(key, lang) {
     const keys = key.split('.');
     let result = translations[lang];
     for (let i = 0; i < keys.length; i++) {
         if (!result || !result.hasOwnProperty(keys[i])) {
-            return null; // Key not found
+            return null;
         }
         result = result[keys[i]];
     }
     return result;
 }
 
-// Function to apply translations to the DOM
 function translatePage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         const translation = getTranslation(key, lang);
         if (translation) {
-            // Check if element is a direct child of h1 for special handling
             if (element.parentElement && element.parentElement.tagName === 'H1' && key === 'hero.title_part1') {
-                // For 'Beyond the ' part, we update text node directly
                 const nextSpan = element.querySelector('span[data-i18n="hero.title_part2"]');
                 if (nextSpan) {
                     element.innerHTML = translation + nextSpan.outerHTML;
                 } else {
-                    element.textContent = translation; // Fallback
+                    element.textContent = translation;
                 }
             } else {
                 element.textContent = translation;
@@ -130,7 +160,6 @@ function translatePage(lang) {
         }
     });
 
-    // Update the language toggle highlights
     document.getElementById('lang-tr').classList.remove('text-white', 'hover:text-white');
     document.getElementById('lang-en').classList.remove('text-white', 'hover:text-white');
     document.getElementById('lang-tr').classList.add('hover:text-white', 'text-gray-400');
@@ -144,22 +173,19 @@ function translatePage(lang) {
         document.getElementById('lang-en').classList.remove('text-gray-400');
     }
     
-    currentLang = lang; // Update global state
-    document.documentElement.lang = lang; // Update HTML lang attribute
+    currentLang = lang;
+    document.documentElement.lang = lang;
 }
 
-// Function triggered by the language selection buttons
 function setLanguage(lang) {
     translatePage(lang);
     if (document.getElementById('mobile-menu').classList.contains('translate-x-0')) {
-        toggleMenu(); // Close menu after selection on mobile
+        toggleMenu();
     }
 }
 
-// Existing toggleMenu function
 function toggleMenu() {
     const menu = document.getElementById('mobile-menu');
-    // Using explicit class names for clarity in this version
     if (menu.classList.contains('-translate-x-full')) {
         menu.classList.remove('-translate-x-full');
     } else {
@@ -167,7 +193,6 @@ function toggleMenu() {
     }
 }
 
-// Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1
 };
@@ -184,7 +209,6 @@ document.querySelectorAll('.reveal').forEach((el) => {
     observer.observe(el);
 });
 
-// Initialize with default language on page load
 document.addEventListener('DOMContentLoaded', () => {
     translatePage(currentLang);
 });
