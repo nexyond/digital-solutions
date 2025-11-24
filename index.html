@@ -1,77 +1,282 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Nexyond | Geleceğin Çözümleri</title>
-    <meta name="description" content="Nexyond: Yapay Zeka, Yazılım ve Dijital Ürünler.">
+    <title data-i18n="title">Nexyond | Digital Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="google-site-verification" content="fn672-3SurT1hYAa6MokQD_WDvk4lU479gTR5mKB8XM" />
 </head>
-<body>
-
-    <div style="position: fixed; top: 0; left: 0; padding: 15px 5%; z-index: 100; background-color: rgba(10, 10, 10, 0.9); width: 90%; border-bottom: 1px solid rgba(0, 255, 255, 0.1);">
-        <a href="#home" style="color: var(--neon-blue); font-weight: bold; text-decoration: none; font-size: 1.2em;">
-            NEXYOND
-        </a>
+<body class="antialiased">
+    <header class="fixed w-full top-0 z-50 glass-header border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-6">
+                <button onclick="toggleMenu()" class="text-white hover:text-gray-400 transition focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </button>
+                <a href="#" class="text-2xl font-bold tracking-tighter flex items-center gap-2">
+                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black text-xs font-bold"><img src="/NEXYOND.png"></div>
+                    <span>NEXYOND</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-4 text-sm font-medium text-gray-400">
+                <span id="lang-tr" class="text-white cursor-pointer" onclick="setLanguage('tr')">TR</span>
+                <span class="w-[1px] h-4 bg-gray-600"></span>
+                <span id="lang-en" class="hover:text-white cursor-pointer transition" onclick="setLanguage('en')">EN</span>
+            </div>
+        </div>
+    </header>
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform -translate-x-full flex flex-col justify-center pl-12 md:pl-32">
+        <button onclick="toggleMenu()" class="absolute top-6 left-6 text-gray-400 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <nav class="space-y-6 text-4xl md:text-6xl font-bold text-white opacity-90">
+            <a href="#services" onclick="toggleMenu()" class="block hover:opacity-50 transition" data-i18n="nav.services">Services</a>
+            <a href="#products" onclick="toggleMenu()" class="block hover:opacity-50 transition" data-i18n="nav.products">Digital Products</a>
+            <a href="#ai-characters" onclick="toggleMenu()" class="block hover:opacity-50 transition" data-i18n="nav.ai_models">Our AI Models</a>
+            <a href="#contact" onclick="toggleMenu()" class="block hover:opacity-50 transition" data-i18n="nav.contact">Contact</a>
+        </nav>
     </div>
-
-    <div class="animated-bg">
-    </div>
-
-    <section class="hero" id="home">
-        <div style="z-index: 2;">
-            <button class="lang-button" id="langButton" onclick="toggleLanguage()">$changeLanguage >> ENGLISH</button>
-            
-            <h1 class="cmd-text" data-tr="NEXYOND DIGITAL SOLUTIONS" data-en="NEXYOND DIGITAL SOLUTIONS">NEXT DIGITAL SOLUTIONS<span class="cursor"></span></h1>
-            
-            <p style="font-size: 1.2em; color: #aaa;" data-tr="Geleceğinize kod yazıyoruz. Yapay zeka, tasarım ve yazılım." data-en="We code your future. Artificial intelligence, design, and software.">Geleceğinize kod yazuyoruz. Yapay zeka, tasarım ve yazılım.</p>
+    <section class="relative h-screen flex items-center justify-center text-center px-4 pt-20">
+        <div class="max-w-4xl mx-auto space-y-8 reveal">
+            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter leading-tight" data-i18n="hero.title_part1">
+                Beyond the <span class="gradient-text" data-i18n="hero.title_part2">Next.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light" data-i18n="hero.subtitle">
+                We build the future today with Software, Design, and Artificial Intelligence.
+            </p>
+            <div class="pt-8">
+                <a href="#services" class="px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition transform hover:scale-105 inline-block" data-i18n="hero.cta">
+                    Get Started
+                </a>
+            </div>
         </div>
-        <a href="#services" class="scroll-down" data-tr="↓" data-en="↓">↓</a>
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-800/20 via-black to-black"></div>
     </section>
-
-    <section class="services" id="services">
-        <h2 data-tr="HİZMETLERİMİZ // CONNECTING THE FUTURE" data-en="OUR SERVICES // CONNECTING THE FUTURE">HİZMETLERİMİZ // CONNECTING THE FUTURE</h2>
-        
-        <div class="accordion-container">
-            
-            <div class="accordion-item">
-                <div class="accordion-title" data-tr="YAZILIM & UYGULAMA GELİŞTİRME" data-en="SOFTWARE & APPLICATION DEVELOPMENT">YAZILIM & UYGULAMA GELİŞTİRME <span style="float: right;">[CODE]</span></div>
-                <div class="accordion-content">
-                    <p data-tr="Web Sitesi ve Mobil Uygulama Kodlama | Backend & API Geliştirme | Dijital Dönüşüm. İhtiyacınıza özel, ölçeklenebilir ve yüksek performanslı sistemler kuruyoruz. **Uygulama kodlama ve altyapı mimarisi.**" data-en="Website and Mobile App Coding | Backend & API Development | Digital Transformation. We build scalable and high-performance systems tailored to your needs. **Application coding and infrastructure architecture.**">Web Sitesi ve Mobil Uygulama Kodlama | Backend & API Geliştirme | Dijital Dönüşüm. İhtiyacınıza özel, ölçeklenebilir ve yüksek performanslı sistemler kuruyoruz. **Uygulama kodlama ve altyapı mimarisi.**</p>
-                    <a href="mailto:nexyond.official@gmail.com" data-tr="// TEKLİF AL >>" data-en="// GET A QUOTE >>">// TEKLİF AL >></a>
-                </div>
+    <section id="services" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 reveal" data-i18n="services.title">What We Do</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="#yazilim" class="bento-card p-8 rounded-3xl md:col-span-2 reveal">
+                    <div class="h-full flex flex-col justify-between">
+                        <div class="text-4xl mb-4">💻</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="services.item1_title">Software & Mobile Application</h3>
+                            <p class="text-gray-400" data-i18n="services.item1_desc">Scalable, high-performance custom solutions for iOS, Android, and Web.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#ui-ux" class="bento-card p-8 rounded-3xl reveal delay-100">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-bold text-white mb-2" data-i18n="services.item2_title">UI/UX Design</h3>
+                    <p class="text-gray-400" data-i18n="services.item2_desc">User-centric, aesthetic, and functional interface designs.</p>
+                </a>
+                <a href="#tasarim" class="bento-card p-8 rounded-3xl reveal">
+                    <div class="text-4xl mb-4">✒️</div>
+                    <h3 class="text-2xl font-bold text-white mb-2" data-i18n="services.item3_title">Brand Design</h3>
+                    <p class="text-gray-400" data-i18n="services.item3_desc">Logo, Business Card, and Corporate Identity work.</p>
+                </a>
+                <a href="#ai-cozumleri" class="bento-card p-8 rounded-3xl md:col-span-2 reveal delay-100">
+                    <div class="h-full flex flex-col justify-between">
+                        <div class="text-4xl mb-4">🤖</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="services.item4_title">Artificial Intelligence Solutions</h3>
+                            <p class="text-gray-400" data-i18n="services.item4_desc">Prompt engineering, AI character development, and automation systems.</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-            
-            <div class="accordion-item">
-                <div class="accordion-title" data-tr="WEB UI, LOGO & KURUMSAL TASARIM" data-en="WEB UI, LOGO & CORPORATE DESIGN">WEB UI, LOGO & KURUMSAL TASARIM <span style="float: right;">[DESIGN]</span></div>
-                <div class="accordion-content">
-                    <p data-tr="Logo Tasarımı | Web Arayüz (UI) Geliştirme | Kurumsal Kimlik & Markalama. **Kullanıcı dostu arayüzler** ve akılda kalıcı görsel kimlikler tasarlıyoruz." data-en="Logo Design | Web Interface (UI) Development | Corporate Identity & Branding. We design user-friendly interfaces and striking visual identities.">Logo Tasarımı | Web Arayüz (UI) Geliştirme | Kurumsal Kimlik & Markalama. **Kullanıcı dostu arayüzler** ve akılda kalıcı görsel kimlikler tasarlıyoruz.</p>
-                    <a href="https://behance.net/nexyond" target="_blank" data-tr="// PORTFOLYO GÖR >>" data-en="// VIEW PORTFOLIO >>">// PORTFOLYO GÖR >></a>
+        </div>
+    </section>
+    <section id="products" class="py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-end reveal">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4" data-i18n="products.title">Digital Store</h2>
+                    <p class="text-gray-400" data-i18n="products.subtitle">Latest E-Books, Prompt Libraries, and Design Resources.</p>
                 </div>
+                <a href="https://nexyond.gumroad.com" target="_blank" class="text-white underline decoration-gray-600 underline-offset-8 hover:decoration-white transition mt-6 md:mt-0" data-i18n="products.cta">
+                    View All on Gumroad ->
+                </a>
             </div>
-            
-            <div class="accordion-item">
-                <div class="accordion-title" data-tr="AI & DİJİTAL ÜRÜNLER" data-en="AI & DIGITAL PRODUCTS">AI & DİJİTAL ÜRÜNLER <span style="float: right;">[PRODUCTS]</span></div>
-                <div class="accordion-content">
-                    <p data-tr="Yapay Zeka Entegrasyonu | Kendi Dijital Ürünlerimiz | PWA Geliştirme. **Hazır dijital ürünlerimizi satın** veya fikrinizi pazara hazır bir ürüne dönüştürelim." data-en="AI Integration | Our Own Digital Products | PWA Development. **Purchase our ready-made digital products** or let us turn your idea into a market-ready product.">Yapay Zeka Entegrasyonu | Kendi Dijital Ürünlerimiz | PWA Geliştirme. **Hazır dijital ürünlerimizi satın** veya fikrinizi pazara hazır bir ürüne dönüştürelim.</p>
-                    <a href="mailto:nexyond.official@gmail.com" data-tr=" // ÜRÜN ÇIKART >>" data-en=" // LAUNCH PRODUCT >>"> // ÜRÜN ÇIKART >></a>
+        </div>
+        <div class="product-slider-container reveal">
+            <div class="product-slider-track">
+                <a href="https://nexyond.gumroad.com/l/ecommerce-stockphotoset?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_photoset">Photo Sets</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">50 AI Generated E-Commerce Stock Photo Set</h3>
+                        </div>
+                        <img src="https://public-files.gumroad.com/bsoq7hnxh7gdrsui96cesbacbnuu" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Stock Photo Set">
+                    </div>
+                </a>
+                <a href="https://nexyond.gumroad.com/l/ebooks-yapayzekaninsultani?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aistory">AI Story Pack</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">Yapay Zekanın Sultanı (Turkish)</h3>
+                        </div>
+                        <img src="https://public-files.gumroad.com/xzxz0s08mtdzwrcnz8bmeo6gtmrl" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Yapay Zekanın Sultanı">
+                    </div>
+                </a>
+                <a href="https://nexyond.gumroad.com/l/ebooks-theinefficientheart?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aistory">AI Story Pack</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">The Inefficient Heart</h3>
+                        </div>
+                        <img src="https://public-files.gumroad.com/ou67dblrto9zwq984tvacqte1p76" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="The Inefficient Heart">
+                    </div>
+                </a>
+                <a href="https://nexyond.gumroad.com/l/ebooks-60promptsforautomation?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aiprompt">AI Prompt Pack</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">60+ Productivity & Automation Prompts</h3>
+                        </div>
+                        <img src="https://public-files.gumroad.com/xo7130mr211m5g6ya5wj9xg6w09u" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Automation Prompts">
+                    </div>
+                </a>
+                <a href="https://nexyond.gumroad.com/l/ebooks-50professionalpromptsforwriters?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aiprompt">AI Prompt Pack</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">50+ Professional Prompts for Writers</h3>
+                        </div>
+                        <img src="https://public-files.gumroad.com/g3jja3wsmi04nbv55eu8p0081c3f" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Writers Prompts">
+                    </div>
+                </a>
+                <a href="https://nexyond.gumroad.com/l/ecommerce-stockphotoset?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                         <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_photoset">Photo Sets</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">50 AI Generated E-Commerce Stock Photo Set</h3>                        
+                        </div>
+                        <img src="https://public-files.gumroad.com/bsoq7hnxh7gdrsui96cesbacbnuu" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Stock Photo Set">
+                    </div>
+                </a>
+                <a href="https://nexyond.gumroad.com/l/ebooks-yapayzekaninsultani?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aistory">AI Story Pack</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">Yapay Zekanın Sultanı (Turkish)</h3>                        
+                        </div>
+                        <img src="https://public-files.gumroad.com/xzxz0s08mtdzwrcnz8bmeo6gtmrl" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Yapay Zekanın Sultanı">
+                    </div>
+                </a>
+                <a href="https://nexyond.gumroad.com/l/ebooks-theinefficientheart?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aistory">AI Story Pack</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">The Inefficient Heart</h3>                        
+                        </div>
+                        <img src="https://public-files.gumroad.com/ou67dblrto9zwq984tvacqte1p76" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="The Inefficient Heart">
+                    </div>
+                </a>
+                <a href="https://nexyond.gumroad.com/l/ebooks-60promptsforautomation?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aiprompt">AI Prompt Pack</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">60+ Productivity & Automation Prompts</h3>                        
+                        </div>
+                        <img src="https://public-files.gumroad.com/xo7130mr211m5g6ya5wj9xg6w09u" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Automation Prompts">
+                    </div>
+                </a>
+                <a href="https://nexyond.gumroad.com/l/ebooks-50professionalpromptsforwriters?layout=profile" target="_blank" class="product-item group cursor-pointer">
+                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <div class="absolute top-4 left-4 z-20"> 
+                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aiprompt">AI Prompt Pack</span>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <h3 class="text-xl font-bold">50+ Professional Prompts for Writers</h3>                        
+                        </div>
+                        <img src="https://public-files.gumroad.com/g3jja3wsmi04nbv55eu8p0081c3f" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Writers Prompts">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="ai-characters" class="py-24 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 reveal" data-i18n="ai_models.title">Our AI Models</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="reveal ai-avatar-card">
+                    <div class="w-48 h-48 mx-auto rounded-full p-1 bg-gradient-to-tr from-pink-500 to-purple-500 mb-6">
+                        <div class="w-full h-full rounded-full bg-gray-900 overflow-hidden">
+                            <img src="https://placehold.co/192x192/111111/444444?text=AI+Model" 
+                                 class="w-full h-full object-cover ai-avatar-img" 
+                                 alt="AI Karakter Miray">
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold">Miray</h3>
+                    <p class="text-gray-400 mb-4" data-i18n="ai_models.miray_desc">Fashion & Travel & Cosplay</p>
+                    <a href="#" class="text-pink-500 hover:text-pink-400 text-sm font-semibold tracking-widest">@NEXYOND.MIRAY</a>
+                </div>
+                <div class="reveal delay-100 ai-avatar-card">
+                    <div class="w-48 h-48 mx-auto rounded-full p-1 bg-gradient-to-tr from-blue-500 to-cyan-500 mb-6">
+                        <div class="w-full h-full rounded-full bg-gray-900 overflow-hidden">
+                            <img src="https://placehold.co/192x192/111111/444444?text=AI+Model" 
+                                 class="w-full h-full object-cover ai-avatar-img" 
+                                 alt="AI Karakter Hüsamettin">
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold">Hüsamettin</h3>
+                    <p class="text-gray-400 mb-4" data-i18n="ai_models.husamettin_desc">Mathematics Teacher</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-400 text-sm font-semibold tracking-widest">@NEXYOND.HUSAMETTIN</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="mailto:nexyond.official@gmail.com" data-tr="Mail Gönder" data-en="Send Mail">Mail Gönder</a> |
-            <a href="https://behance.net/nexyond" target="_blank" data-tr="Portfolyo" data-en="Portfolio">Portfolyo</a> |
-            <a href="https://github.com/nexyond" target="_blank">GitHub</a> |
-            <a href="https://instagram.com/nexyond" target="_blank">Instagram</a>
+    <footer id="contact" class="py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <h3 class="text-2xl font-bold mb-2">Nexyond Digital Solutions</h3>
+            </div>
+            <div class="flex gap-8">
+                <a href="https://twitter.com/nexyond" target="_blank" class="text-gray-400 hover:text-white transition">X (Twitter)</a>
+                <a href="https://instagram.com/nexyond" target="_blank" class="text-gray-400 hover:text-white transition">Instagram</a>
+                <a href="https://github.com/nexyond" target="_blank" class="text-gray-400 hover:text-white transition">GitHub</a>
+                <a href="mailto:nexyond@gmail.com" class="text-gray-400 hover:text-white transition" data-i18n="footer.email">Email</a>
+            </div>
         </div>
-        <p style="margin-top: 15px;">© 2025 NEXYOND Digital Solutions. <span data-tr="Tüm Hakları Saklıdır." data-en="All Rights Reserved.">Tüm Hakları Saklıdır.</span></p>
+        <div class="text-center mt-12 text-gray-700 text-xs" data-i18n="footer.copyright">
+            &copy; 2025 Nexyond Digital Solutions. All rights reserved.
+        </div>
     </footer>
-
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
