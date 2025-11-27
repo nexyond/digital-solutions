@@ -139,6 +139,32 @@ function handleOptionClick(optionKey) {
     chatWindow.appendChild(botMessage);
     chatWindow.scrollTop = chatWindow.scrollHeight;
 }
+function animateCounters() {
+    const counters = [
+        { id: 'count1', target: 87 },
+        { id: 'count2', target: 24 },
+        { id: 'count3', target: 150 },
+        { id: 'count4', target: 98 }
+    ];
+    
+    counters.forEach(counter => {
+        let current = 0;
+        const element = document.getElementById(counter.id);
+        const increment = counter.target / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= counter.target) {
+                element.textContent = counter.target + '+';
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, 40);
+    });
+}
+document.addEventListener('DOMContentLoaded', function() {
+    animateCounters();
+});
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 let width, height;
