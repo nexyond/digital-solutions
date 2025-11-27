@@ -1,381 +1,320 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">Nexyond | Digital Solutions</title>
+    <title>Nexyond | İşinizi Dijitale Taşıyın</title>
+    <meta name="description" content="Web sitesi, mobil uygulama, dijital kartvizit ve sosyal medya yönetimi. İşinizi büyütmek için dijital çözümler.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace'],
+                    },
+                    colors: {
+                        nex: {
+                            dark: '#030303',
+                            card: '#0a0a0a',
+                            border: '#1f1f1f',
+                            accent: '#3b82f6',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="antialiased">
-    <header class="fixed w-full top-0 z-50 glass-header border-b border-white/5">
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+    <canvas id="bg-canvas"></canvas>
+    <header class="fixed w-full top-0 z-50 glass transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-6">
-                <button onclick="toggleMenu()" class="text-white hover:text-gray-400 transition focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h7" />
-                    </svg>
-                </button>
-                <a href="#" class="text-2xl font-bold tracking-tighter flex items-center gap-2">
-                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black text-xs font-bold"><img src="/NEXYOND.png"></div>
-                    <span>NEXYOND</span>
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1 relative overflow-hidden">
+                    <img src="/NEXYOND.png" alt="Nexyond Logo" class="w-full h-full object-contain">
+                </div>
+                <span class="text-xl font-bold tracking-widest font-mono text-white">NEXYOND</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-gray-300">
+                <a href="#vision" class="hover:text-blue-400 transition-colors" data-lang="nav_vision">VİZYON</a>
+                <a href="#services" class="hover:text-blue-400 transition-colors" data-lang="nav_services">HİZMETLER</a>
+                <a href="#process" class="hover:text-blue-400 transition-colors" data-lang="nav_process">SÜREÇ</a>
+                
+                <div class="flex items-center gap-2 border-l border-white/10 pl-6 ml-2">
+                    <button class="text-white hover:text-blue-400 transition" onclick="setLanguage('tr')" id="lang-tr">TR</button>
+                    <span class="text-gray-600">/</span>
+                    <button class="text-gray-500 hover:text-white transition" onclick="setLanguage('en')" id="lang-en">EN</button>
+                </div>
+                <a href="#contact" class="px-6 py-2.5 bg-white/10 border border-white/10 hover:bg-white hover:text-black rounded-full transition-all duration-300 backdrop-blur-md" data-lang="nav_cta">
+                    Hemen Başla
                 </a>
-            </div>
-            <div class="flex items-center gap-4 text-sm font-medium text-gray-400">
-                <span id="lang-tr" class="text-white cursor-pointer" onclick="setLanguage('tr')">TR</span>
-                <span class="w-[1px] h-4 bg-gray-600"></span>
-                <span id="lang-en" class="hover:text-white cursor-pointer transition" onclick="setLanguage('en')">EN</span>
-            </div>
+            </nav>
+            <button onclick="toggleMenu()" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </div>
     </header>
-    <div id="mobile-menu" class="fixed inset-0 bg-black z-40 transform -translate-x-full flex flex-col justify-center pl-12 md:pl-32">
-        <button onclick="toggleMenu()" class="absolute top-6 left-6 text-gray-400 hover:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center backdrop-blur-xl">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 text-gray-400 hover:text-white">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
-        <nav class="space-y-6 text-4xl md:text-6xl font-bold text-white opacity-90">
-            <a href="#services" onclick="toggleMenu()" class="block hover:opacity-50 transition" data-i18n="nav.services">Services</a>
-            <a href="#softwares" onclick="toggleMenu()" class="block hover:opacity-50 transition" data-i18n="nav.softwares">Software & Tools</a>
-            <a href="#products" onclick="toggleMenu()" class="block hover:opacity-50 transition" data-i18n="nav.products">Digital Products</a>
-            <a href="#ai-characters" onclick="toggleMenu()" class="block hover:opacity-50 transition" data-i18n="nav.ai_models">Our AI Models</a>
-            <a href="#contact" onclick="toggleMenu()" class="block hover:opacity-50 transition" data-i18n="nav.contact">Contact</a>
+        <nav class="flex flex-col gap-8 text-center text-3xl font-bold text-white font-mono">
+            <a href="#vision" onclick="toggleMenu()" data-lang="nav_vision">VİZYON</a>
+            <a href="#services" onclick="toggleMenu()" data-lang="nav_services">HİZMETLER</a>
+            <a href="#process" onclick="toggleMenu()" data-lang="nav_process">SÜREÇ</a>
+            <a href="#contact" onclick="toggleMenu()" data-lang="nav_contact">İLETİŞİM</a>
+            <div class="flex items-center gap-4 justify-center text-2xl mt-4">
+                <button class="font-bold text-white" onclick="setLanguage('tr'); toggleMenu();">TR</button>
+                <span class="text-gray-600">/</span>
+                <button class="text-gray-500" onclick="setLanguage('en'); toggleMenu();">EN</button>
+            </div>
         </nav>
     </div>
-    <section class="relative h-screen flex items-center justify-center text-center px-4 pt-20">
-        <div class="max-w-4xl mx-auto space-y-8 reveal">
-            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter leading-tight" data-i18n="hero.title_part1">
-                Beyond the <span class="gradient-text" data-i18n="hero.title_part2">Next.</span>
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] -z-10 animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] -z-10 animate-pulse-slow" style="animation-delay: 2s"></div>
+        <div class="max-w-5xl mx-auto px-6 text-center z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-mono tracking-widest mb-8">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                <span data-lang="hero_status">SİSTEMLER AKTİF</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-8">
+                <span data-lang="hero_title_1">İşinizi Dijitalin</span> <br>
+                <span class="text-gradient-blue" data-lang="hero_title_2">Zirvesine Taşıyın.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light" data-i18n="hero.subtitle">
-                We build the future today with Software, Design, and Artificial Intelligence.
+            <p class="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-12" data-lang="hero_desc">
+                Web sitesi, mobil uygulama veya dijital kartvizit...<br>
+                Rakiplerinizin önüne geçmek için ihtiyacınız olan her şeyi tasarlıyor ve kodluyoruz.
             </p>
-            <div class="pt-8">
-                <a href="#services" class="px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition transform hover:scale-105 inline-block" data-i18n="hero.cta">
-                    Get Started
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#contact" class="btn-glow px-8 py-4 rounded-full font-bold text-lg min-w-[200px]" data-lang="cta_main">
+                    Teklif Alın
+                </a>
+                <a href="#services" class="border border-white/20 hover:border-blue-500 hover:text-blue-500 px-8 py-4 rounded-full font-bold text-lg min-w-[200px] text-gray-300 transition-all" data-lang="cta_sec">
+                    Hizmetlerimiz
                 </a>
             </div>
         </div>
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-800/20 via-black to-black"></div>
     </section>
-    <section id="services" class="py-24 bg-black">
+    <section id="vision" class="py-24 bg-nex-dark/50 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold mb-16 reveal text-center" data-i18n="services.title">What We Do</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <a href="#yazilim" class="bento-card p-8 rounded-3xl md:col-span-2 reveal">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">💻</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="services.item1_title">Software & Mobile Application</h3>
-                            <p class="text-gray-400" data-i18n="services.item1_desc">Scalable, high-performance custom solutions for iOS, Android, and Web.</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#ui-ux" class="bento-card p-8 rounded-3xl reveal delay-100">
-                    <div class="text-4xl mb-4">🎨</div>
-                    <h3 class="text-2xl font-bold text-white mb-2" data-i18n="services.item2_title">UI/UX Design</h3>
-                    <p class="text-gray-400" data-i18n="services.item2_desc">User-centric, aesthetic, and functional interface designs.</p>
-                </a>
-                <a href="#tasarim" class="bento-card p-8 rounded-3xl reveal">
-                    <div class="text-4xl mb-4">✒️</div>
-                    <h3 class="text-2xl font-bold text-white mb-2" data-i18n="services.item3_title">Brand Design</h3>
-                    <p class="text-gray-400" data-i18n="services.item3_desc">Logo, Business Card, and Corporate Identity work.</p>
-                </a>
-                <a href="#ai-cozumleri" class="bento-card p-8 rounded-3xl md:col-span-2 reveal delay-100">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">🤖</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="services.item4_title">Artificial Intelligence Solutions</h3>
-                            <p class="text-gray-400" data-i18n="services.item4_desc">Prompt engineering, AI character development, and automation systems.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section id="softwares" class="py-24 border-t border-white/10 bg-[#0a0a0a]">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold mb-16 reveal text-center" data-i18n="softwares.title">Software & Tools</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                
-                <a href="https://ismailoksuz.github.io/QR-Code-Generator/" target="_blank" class="bento-card p-8 rounded-3xl reveal">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">🔗</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item1_title">QR Code Generator</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://ismailoksuz.github.io/AI-Summarizer/" target="_blank" class="bento-card p-8 rounded-3xl reveal delay-100">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">📄</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item2_title">AI Text Summarizer</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://ismailoksuz.github.io/Unit-Converter/" target="_blank" class="bento-card p-8 rounded-3xl reveal delay-200">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">📏</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item3_title">Unit Converter</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://ismailoksuz.github.io/Color-Palette-Generator/" target="_blank" class="bento-card p-8 rounded-3xl reveal delay-300">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">🎨</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item4_title">Color Palette Generator</h3>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="https://ismailoksuz.github.io/Image-Resizer-Compressor/" target="_blank" class="bento-card p-8 rounded-3xl reveal">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">🖼️</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item5_title">Image Resizer & Compressor</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://ismailoksuz.github.io/Code-Formatter-Beautifier/" target="_blank" class="bento-card p-8 rounded-3xl reveal delay-100">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">💻</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item6_title">Code Formatter & Beautifier</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://ismailoksuz.github.io/JSON-XML-Viewer-Formatter/" target="_blank" class="bento-card p-8 rounded-3xl reveal delay-200">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">💾</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item7_title">JSON / XML Viewer & Formatter</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://ismailoksuz.github.io/URL-Encoder-Decoder/" target="_blank" class="bento-card p-8 rounded-3xl reveal delay-300">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">🌐</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item8_title">URL Encoder & Decoder</h3>
-                        </div>
-                    </div>
-                </a>
-    
-                <a href="https://ismailoksuz.github.io/Base64-Encoder-Decoder/" target="_blank" class="bento-card p-8 rounded-3xl reveal">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">🔒</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item9_title">Base 64 Encoder & Decoder</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://ismailoksuz.github.io/Text-Case-Converter/" target="_blank" class="bento-card p-8 rounded-3xl reveal delay-100">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">🅰️</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item10_title">Text Case Converter</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://ismailoksuz.github.io/Password-Strength-Tester/" target="_blank" class="bento-card p-8 rounded-3xl reveal delay-200">
-                    <div class="h-full flex flex-col justify-between">
-                        <div class="text-4xl mb-4">🔑</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-2" data-i18n="softwares.item11_title">Password Strength Tester</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section id="products" class="py-24 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4 reveal text-center" data-i18n="products.title">Digital Store</h2>
-            <div class="flex flex-col md:flex-row justify-between items-end reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <p class="text-gray-400 max-w-2xl mx-auto text-center" data-i18n="products.subtitle">Latest E-Books, Prompt Libraries, and Design Resources.</p>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 font-mono" data-lang="vision_title">
+                        Geleneksel Kalma,<br>
+                        <span class="text-gradient-blue">Geleceğe Odaklan.</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-6" data-lang="vision_desc_1">
+                        Eski usül ticaret yöntemleri yavaş yavaş kayboluyor. Müşterileriniz artık sizi telefonda, Google'da veya sosyal medyada arıyor.
+                    </p>
+                    <p class="text-gray-400 text-lg mb-8" data-lang="vision_desc_2">
+                        Eğer internette yoksanız, müşterileriniz için de yoksunuz demektir. Nexyond olarak sizi dijital dünyada görünür, ulaşılabilir ve prestijli kılıyoruz.
+                    </p>              
+                    <ul class="space-y-4 font-mono text-sm text-gray-300">
+                        <li class="flex items-center gap-3">
+                            <span class="text-blue-500">>>></span> <span data-lang="vision_point_1">7/24 Açık Dükkan (Web Sitesi)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-blue-500">>>></span> <span data-lang="vision_point_2">Milyonlara Ulaşan Reklamlar</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-blue-500">>>></span> <span data-lang="vision_point_3">Kağıt Masrafsız Dijital Çözümler</span>
+                        </li>
+                    </ul>
                 </div>
-                <a href="https://nexyond.gumroad.com" target="_blank" class="text-white underline decoration-gray-600 underline-offset-8 hover:decoration-white transition mt-6 md:mt-0 mx-auto md:mx-0" data-i18n="products.cta">
-                    View All on Gumroad ->
-                </a>
-            </div>
-        </div>
-        <div class="product-slider-container reveal">
-            <div class="product-slider-track">
-                <a href="https://nexyond.gumroad.com/l/ecommerce-stockphotoset?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_photoset">Photo Sets</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">50 AI Generated E-Commerce Stock Photo Set</h3>
-                        </div>
-                        <img src="https://public-files.gumroad.com/bsoq7hnxh7gdrsui96cesbacbnuu" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Stock Photo Set">
+                <div class="relative">
+                    <div class="aspect-square rounded-2xl bg-gradient-to-br from-gray-800 to-black border border-white/10 p-8 relative overflow-hidden flex flex-col justify-end">
+                         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+                         <div class="text-8xl font-bold text-white/5 absolute top-4 right-4">24/7</div>
+                         <h3 class="text-2xl font-bold text-white relative z-10 mb-2" data-lang="vision_card_title">Dijital Dönüşüm</h3>
+                         <p class="text-gray-500 text-sm relative z-10" data-lang="vision_card_desc">Fiziksel sınırları kaldırın. Dünyanın her yerinden müşteri edinin.</p>
                     </div>
-                </a>
-                <a href="https://nexyond.gumroad.com/l/ebooks-yapayzekaninsultani?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aistory">AI Story Pack</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">Yapay Zekanın Sultanı (Turkish)</h3>
-                        </div>
-                        <img src="https://public-files.gumroad.com/xzxz0s08mtdzwrcnz8bmeo6gtmrl" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Yapay Zekanın Sultanı">
-                    </div>
-                </a>
-                <a href="https://nexyond.gumroad.com/l/ebooks-theinefficientheart?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aistory">AI Story Pack</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">The Inefficient Heart</h3>
-                        </div>
-                        <img src="https://public-files.gumroad.com/ou67dblrto9zwq984tvacqte1p76" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="The Inefficient Heart">
-                    </div>
-                </a>
-                <a href="https://nexyond.gumroad.com/l/ebooks-60promptsforautomation?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aiprompt">AI Prompt Pack</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">60+ Productivity & Automation Prompts</h3>
-                        </div>
-                        <img src="https://public-files.gumroad.com/xo7130mr211m5g6ya5wj9xg6w09u" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Automation Prompts">
-                    </div>
-                </a>
-                <a href="https://nexyond.gumroad.com/l/ebooks-50professionalpromptsforwriters?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aiprompt">AI Prompt Pack</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">50+ Professional Prompts for Writers</h3>
-                        </div>
-                        <img src="https://public-files.gumroad.com/g3jja3wsmi04nbv55eu8p0081c3f" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Writers Prompts">
-                    </div>
-                </a>
-                <a href="https://nexyond.gumroad.com/l/ecommerce-stockphotoset?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_photoset">Photo Sets</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">50 AI Generated E-Commerce Stock Photo Set</h3> 
-                        </div>
-                        <img src="https://public-files.gumroad.com/bsoq7hnxh7gdrsui96cesbacbnuu" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Stock Photo Set">
-                    </div>
-                </a>
-                <a href="https://nexyond.gumroad.com/l/ebooks-yapayzekaninsultani?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aistory">AI Story Pack</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">Yapay Zekanın Sultanı (Turkish)</h3> 
-                        </div>
-                        <img src="https://public-files.gumroad.com/xzxz0s08mtdzwrcnz8bmeo6gtmrl" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Yapay Zekanın Sultanı">
-                    </div>
-                </a>
-                <a href="https://nexyond.gumroad.com/l/ebooks-theinefficientheart?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aistory">AI Story Pack</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">The Inefficient Heart</h3> 
-                        </div>
-                        <img src="https://public-files.gumroad.com/ou67dblrto9zwq984tvacqte1p76" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="The Inefficient Heart">
-                    </div>
-                </a>
-                <a href="https://nexyond.gumroad.com/l/ebooks-60promptsforautomation?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aiprompt">AI Prompt Pack</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">60+ Productivity & Automation Prompts</h3> 
-                        </div>
-                        <img src="https://public-files.gumroad.com/xo7130mr211m5g6ya5wj9xg6w09u" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Automation Prompts">
-                    </div>
-                </a>
-                <a href="https://nexyond.gumroad.com/l/ebooks-50professionalpromptsforwriters?layout=profile" target="_blank" class="product-item group cursor-pointer">
-                    <div class="aspect-[4/5] bg-gray-900 rounded-2xl overflow-hidden relative mb-4">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div class="absolute top-4 left-4 z-20"> 
-                            <span class="text-xs font-bold bg-white text-black px-2 py-1 rounded mb-2 inline-block" data-i18n="product.tag_aiprompt">AI Prompt Pack</span>
-                        </div>
-                        <div class="absolute bottom-6 left-6 z-20">
-                            <h3 class="text-xl font-bold">50+ Professional Prompts for Writers</h3> 
-                        </div>
-                        <img src="https://public-files.gumroad.com/g3jja3wsmi04nbv55eu8p0081c3f" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Writers Prompts">
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section id="ai-characters" class="py-24 bg-[#0a0a0a]">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-16 reveal" data-i18n="ai_models.title">Our AI Models</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                <div class="reveal ai-avatar-card">
-                    <div class="w-48 h-48 mx-auto rounded-full p-1 bg-gradient-to-tr from-pink-500 to-purple-500 mb-6">
-                        <div class="w-full h-full rounded-full bg-gray-900 overflow-hidden">
-                            <img src="https://placehold.co/192x192/111111/444444?text=AI+Model" 
-                                 class="w-full h-full object-cover ai-avatar-img" 
-                                 alt="AI Karakter Miray">
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold">Miray</h3>
-                    <p class="text-gray-400 mb-4" data-i18n="ai_models.miray_desc">Fashion & Travel & Cosplay</p>
-                    <a href="#" class="text-pink-500 hover:text-pink-400 text-sm font-semibold tracking-widest">@NEXYOND.MIRAY</a>
-                </div>
-                <div class="reveal delay-100 ai-avatar-card">
-                    <div class="w-48 h-48 mx-auto rounded-full p-1 bg-gradient-to-tr from-blue-500 to-cyan-500 mb-6">
-                        <div class="w-full h-full rounded-full bg-gray-900 overflow-hidden">
-                            <img src="https://placehold.co/192x192/111111/444444?text=AI+Model" 
-                                 class="w-full h-full object-cover ai-avatar-img" 
-                                 alt="AI Karakter Hüsamettin">
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold">Hüsamettin</h3>
-                    <p class="text-gray-400 mb-4" data-i18n="ai_models.husamettin_desc">Mathematics Teacher</p>
-                    <a href="#" class="text-blue-500 hover:text-blue-400 text-sm font-semibold tracking-widest">@NEXYOND.HUSAMETTIN</a>
                 </div>
             </div>
         </div>
     </section>
-    <footer id="contact" class="py-16 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <h3 class="text-2xl font-bold mb-2">Nexyond Digital Solutions</h3>
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4" data-lang="services_title">Neler Yapıyoruz?</h2>
+                <p class="text-gray-400" data-lang="services_subtitle">İşletmenizin ihtiyacı olan tüm dijital araçlar tek çatı altında.</p>
             </div>
-            <div class="flex gap-8">
-                <a href="https://twitter.com/nexyond" target="_blank" class="text-gray-400 hover:text-white transition">X (Twitter)</a>
-                <a href="https://instagram.com/nexyond" target="_blank" class="text-gray-400 hover:text-white transition">Instagram</a>
-                <a href="https://github.com/nexyond" target="_blank" class="text-gray-400 hover:text-white transition">GitHub</a>
-                <a href="mailto:nexyond@gmail.com" class="text-gray-400 hover:text-white transition" data-i18n="footer.email">Email</a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card md:col-span-2 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 group relative overflow-hidden">
+                    <div class="absolute right-0 top-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -z-10 group-hover:bg-blue-600/20 transition"></div>
+                    <div class="flex-1">
+                        <div class="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2" data-lang="svc_web_title">Web Sitesi Tasarımı & Kurulumu</h3>
+                        <p class="text-gray-400 mb-4" data-lang="svc_web_desc">
+                            Müşterileriniz sizi Google'da aradığında profesyonel bir vitrinle karşılaşsın. 
+                            Kurumsal siteler, bloglar veya ürün tanıtım sayfaları. Hızlı, şık ve tüm telefonlara uyumlu.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>✓ Google (SEO) Uyumlu</li>
+                            <li>✓ Yönetim Panelli (İçeriği siz değiştirin)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="glass-card rounded-3xl p-8 group relative overflow-hidden border-blue-500/30">
+                    <div class="absolute -right-4 -top-4 text-8xl opacity-5 group-hover:opacity-10 transition">QR</div>
+                    <div class="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center text-green-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4h2v-4zM6 8V6H4v2h2zm2-2v2H6V6h2zm6 2V6h-2v2h2zm-2 2H8v2h2v-2zm2 2h2v2h-2v-2zm-2-2h2v2h-2v-2zM4 20h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2" data-lang="svc_qr_title">Dijital QR Kartvizit</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-lang="svc_qr_desc">
+                        Binlerce kağıt kartvizit bastırıp çöpe atmayın. QR kod ile tüm bilgileriniz karşı tarafa anında ulaşsın.
+                    </p>
+                    <span class="text-xs font-bold text-green-400 border border-green-500/30 px-2 py-1 rounded" data-lang="tag_popular">ÇOK POPÜLER</span>
+                </div>
+                <div class="glass-card rounded-3xl p-8 group">
+                    <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center text-purple-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2" data-lang="svc_app_title">Mobil Uygulama (App)</h3>
+                    <p class="text-gray-400 text-sm" data-lang="svc_app_desc">
+                        Fikrinizi cebinize sığdırıyoruz. iOS (iPhone) ve Android için size özel, hızlı çalışan uygulamalar yapıyoruz.
+                    </p>
+                </div>
+                <div class="glass-card rounded-3xl p-8 group">
+                    <div class="w-12 h-12 bg-pink-600/20 rounded-lg flex items-center justify-center text-pink-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2" data-lang="svc_logo_title">Logo & Marka Kimliği</h3>
+                    <p class="text-gray-400 text-sm" data-lang="svc_logo_desc">
+                        Akılda kalıcı bir logo ve kurumsal renkler tasarlıyoruz. Müşterileriniz sizi ilk görüşte tanısın.
+                    </p>
+                </div>
+                <div class="glass-card rounded-3xl p-8 group">
+                    <div class="w-12 h-12 bg-yellow-600/20 rounded-lg flex items-center justify-center text-yellow-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2" data-lang="svc_auto_title">E-Ticaret & İş Otomasyonu</h3>
+                    <p class="text-gray-400 text-sm" data-lang="svc_auto_desc">
+                        İnternetten ürün satın veya işlerinizi robotlara bırakın. Stok takibi, müşteri kaydı, otomatik WhatsApp mesajları gibi sıkıcı işleri yazılımlarımız yapsın.
+                    </p>
+                </div>
+                <div class="glass-card rounded-3xl p-8 group">
+                    <div class="w-12 h-12 bg-indigo-600/20 rounded-lg flex items-center justify-center text-indigo-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2" data-lang="svc_content_title">AI İçerik & Sosyal Medya</h3>
+                    <p class="text-gray-400 text-sm" data-lang="svc_content_desc">
+                        Yapay zeka ile profesyonel fotoğraflar, Instagram gönderileri ve marka içerikleri oluşturuyoruz. Sosyal medya hesaplarınızı canlandırıyoruz.
+                    </p>
+                </div>
+                <div class="glass-card rounded-3xl p-8 group bg-purple-900/10 border-purple-500/30">
+                    <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center text-purple-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2" data-lang="svc_gumroad_title">Hazır Dijital Ürünler</h3>
+                    <p class="text-gray-400 text-sm mb-4" data-lang="svc_gumroad_desc">
+                        E-Kitaplar, hazır fotoğraf setleri, sosyal medya şablonları gibi işinize hemen yarayacak yüzlerce ürüne ulaşın.
+                    </p>
+                    <a href="https://nexyond.gumroad.com" target="_blank" class="text-sm font-bold text-purple-400 hover:text-white transition" data-lang="svc_gumroad_cta">
+                        Tüm Ürünleri İncele →
+                    </a>
+                </div>
+
             </div>
         </div>
-        <div class="text-center mt-12 text-gray-700 text-xs" data-i18n="footer.copyright">
-            &copy; 2025 Nexyond Digital Solutions. All rights reserved.
+    </section>
+    <section id="process" class="py-24 border-t border-white/5 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center" data-lang="process_title">Nasıl Çalışıyoruz?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center group hover:-translate-y-2 transition duration-300">
+                    <div class="w-20 h-20 mx-auto bg-gray-900 rounded-full flex items-center justify-center border border-gray-700 mb-6 group-hover:border-blue-500 transition">
+                        <span class="text-2xl font-bold font-mono text-gray-400 group-hover:text-white">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-lang="step_1_title">Tanışma & Fikir</h3>
+                    <p class="text-gray-500 text-sm" data-lang="step_1_desc">Sizi dinliyoruz. Neye ihtiyacınız olduğunu (Site mi? Kartvizit mi?) belirliyoruz.</p>
+                </div>
+                <div class="text-center group hover:-translate-y-2 transition duration-300">
+                    <div class="w-20 h-20 mx-auto bg-gray-900 rounded-full flex items-center justify-center border border-gray-700 mb-6 group-hover:border-purple-500 transition">
+                        <span class="text-2xl font-bold font-mono text-gray-400 group-hover:text-white">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-lang="step_2_title">Tasarım & Yapım</h3>
+                    <p class="text-gray-500 text-sm" data-lang="step_2_desc">Sizin onayınıza göre tasarımı hazırlıyor ve kodlamasını yapıyoruz.</p>
+                </div>
+
+                <div class="text-center group hover:-translate-y-2 transition duration-300">
+                    <div class="w-20 h-20 mx-auto bg-gray-900 rounded-full flex items-center justify-center border border-gray-700 mb-6 group-hover:border-green-500 transition">
+                        <span class="text-2xl font-bold font-mono text-gray-400 group-hover:text-white">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-lang="step_3_title">Teslim & Destek</h3>
+                    <p class="text-gray-500 text-sm" data-lang="step_3_desc">İşinizi teslim ediyoruz ve kullanımını öğretiyoruz. Takıldığınız yerde destek oluyoruz.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="mailto:nexyond@gmail.com" class="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold text-lg transition-all shadow-lg shadow-blue-500/30" data-lang="cta_mailto">
+                    Hemen Başlayın (Teklif Alın)
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer id="contact" class="border-t border-white/10 bg-black pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="max-w-xs">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center p-0.5"><img src="/NEXYOND.png" class="w-full h-full object-contain"></div>
+                    <span class="font-bold tracking-widest text-white">NEXYOND</span>
+                </div>
+                <p class="text-gray-500 text-sm" data-lang="footer_tagline">
+                    İşinizi büyütmek için gereken tüm dijital çözümler burada.
+                </p>
+                <a href="mailto:nexyond@gmail.com" class="mt-4 inline-block text-white border-b border-blue-500 pb-1 hover:text-blue-400">nexyond@gmail.com</a>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4" data-lang="footer_links_title">Hızlı Bağlantılar</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#services" class="hover:text-blue-400 transition" data-lang="footer_link_services">Hizmetlerimiz</a></li>
+                    <li><a href="#process" class="hover:text-blue-400 transition" data-lang="footer_link_process">Çalışma Sürecimiz</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition" data-lang="footer_link_contact">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-16 text-gray-800 text-xs font-mono">
+            © 2025 NEXYOND DIGITAL SOLUTIONS.
         </div>
     </footer>
-    <script src="script.js"></script>
+    <div id="assistant-button" onclick="toggleAssistant()" class="bg-blue-600 hover:bg-blue-700 flex items-center justify-center transition-all">
+        <img src="asistan.png" onerror="this.onerror=null; this.src='https://placehold.co/60x60/3b82f6/ffffff?text=Asistan'" alt="Dijital Asistan" class="w-full h-full rounded-full p-1 object-cover">
+    </div>
+    <div id="assistant-modal" class="flex flex-col">
+        <div class="bg-blue-600 p-4 rounded-t-xl flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="asistan.png" onerror="this.onerror=null; this.src='https://placehold.co/40x40/3b82f6/ffffff?text=Asistan'" alt="Asistan" class="w-8 h-8 rounded-full">
+                <h4 class="text-white font-bold" data-lang="assist_header">Nexyond Dijital Asistan</h4>
+            </div>
+            <button onclick="toggleAssistant()" class="text-white opacity-70 hover:opacity-100">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <div id="chat-window" class="flex-1 p-4 overflow-y-auto space-y-3">
+        </div>
+        <div id="options-container" class="p-4 border-t border-white/10 flex flex-wrap gap-2 justify-center">
+            <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('web')" data-lang="assist_opt_web">Web Sitesi</button>
+            <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('kartvizit')" data-lang="assist_opt_card">Dijital Kartvizit</button>
+            <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('app')" data-lang="assist_opt_app">Mobil Uygulama</button>
+            <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('logo')" data-lang="assist_opt_logo">Logo Tasarım</button>
+            <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('content')" data-lang="assist_opt_content">AI İçerik</button>
+            <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('fiyat')" data-lang="assist_opt_price">Fiyatlar & Süre</button>
+            <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('contact')" data-lang="assist_opt_contact">İletişime Geç</button>
+        </div>
+    </div>
 </body>
+<script src="script.js"></script>
 </html>
