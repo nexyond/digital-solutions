@@ -1,214 +1,198 @@
-const translations = {
-    en: {
-        title: "Nexyond | Digital Solutions",
-        nav: {
-            services: "Services",
-            softwares: "Software & Tools",
-            products: "Digital Products",
-            ai_models: "Our AI Models",
-            contact: "Contact"
-        },
-        hero: {
-            title_part1: "Beyond the ",
-            title_part2: "Next.",
-            subtitle: "We build the future today with Software, Design, and Artificial Intelligence.",
-            cta: "Get Started"
-        },
-        services: {
-            title: "What We Do",
-            item1_title: "Software & Mobile Application",
-            item1_desc: "Scalable, high-performance custom solutions for iOS, Android, and Web.",
-            item2_title: "UI/UX Design",
-            item2_desc: "User-centric, aesthetic, and functional interface designs.",
-            item3_title: "Brand Design",
-            item3_desc: "Logo, Business Card, and Corporate Identity work.",
-            item4_title: "Artificial Intelligence Solutions",
-            item4_desc: "Prompt engineering, AI character development, and automation systems."
-        },
-        softwares: {
-            title: "Software & Tools",
-            item1_title: "QR Code Generator",
-            item1_desc: "Quickly convert any text or link into a customizable QR code.",
-            item2_title: "AI Text Summarizer",
-            item2_desc: "Effortlessly condense long articles or documents into concise summaries.",
- 
-            item3_title: "Unit Converter",
-            item4_title: "Color Palette Generator",
-            item5_title: "Image Resizer & Compressor",
-            item6_title: "Code Formatter & Beautifier",
-            item7_title: "JSON / XML Viewer & Formatter",
-            item8_title: "URL Encoder & Decoder",
-            item9_title: "Base 64 Encoder & Decoder",
-            item10_title: "Text Case Converter",
-            item11_title: "Password Strength Tester"
-        },
-        products: {
-            title: "Digital Store",
-            subtitle: "Latest E-Books, Prompt Libraries, and Design Resources.",
-            cta: "View All on Gumroad ->"
-        },
-        product: {
-            tag_photoset: "Photo Sets",
-            tag_aistory: "AI Story Pack",
-            tag_aiprompt: "AI Prompt Pack"
-        },
-        ai_models: {
-            title: "Our AI Models",
-            miray_desc: "Fashion & Travel & Cosplay",
-            husamettin_desc: "Mathematics Teacher"
-        },
-        footer: {
-            tagline: "Digital Solutions & Future Labs",
-            email: "Email",
-            copyright: "&copy; 2025 Nexyond Digital Solutions. All rights reserved."
-        }
-    },
+const dictionary = {
     tr: {
-        title: "Nexyond | Dijital Çözümler",
-        nav: {
-            services: "Hizmetler",
-            softwares: "Yazılımlar & Araçlar",
-            products: "Dijital Ürünler",
-            ai_models: "Yapay Zeka Modellerimiz",
-            contact: "İletişim"
-        },
-        hero: {
-            title_part1: "Bir Sonrakinin ",
-            title_part2: "Ötesi.",
-            subtitle: "Yazılım, Tasarım ve Yapay Zeka ile geleceği bugünden inşa ediyoruz.",
-            cta: "Hemen Başlayın"
-        },
-        services: {
-            title: "Neler Yapıyoruz",
-            item1_title: "Yazılım & Mobil Uygulama",
-            item1_desc: "iOS, Android ve Web için ölçeklenebilir, yüksek performanslı özel çözümler.",
-            item2_title: "UI/UX Tasarım",
-            item2_desc: "Kullanıcı odaklı, estetik ve işlevsel arayüz tasarımları.",
-            item3_title: "Marka Tasarımı",
-            item3_desc: "Logo, Kartvizit ve Kurumsal Kimlik çalışmaları.",
-            item4_title: "Yapay Zeka Çözümleri",
-            item4_desc: "Prompt mühendisliği, yapay zeka karakter geliştirme ve otomasyon sistemleri."
-        },
-        softwares: {
-            title: "Yazılımlar & Araçlar",
-            item1_title: "QR Kod Oluşturucu",
-            item1_desc: "Herhangi bir metni veya bağlantıyı hızlıca özelleştirilebilir bir QR koda dönüştürün.",
-            item2_title: "YZ Metin Özetleyici",
-            item2_desc: "Uzun makaleleri veya belgeleri zahmetsizce kısa özetlere yoğunlaştırın.",
-            item3_title: "Birim Çevirici",
-            item4_title: "Renk Paleti Oluşturucu",
-            item5_title: "Görsel Boyutlandırıcı & Sıkıştırıcı",
-            item6_title: "Kod Biçimlendirici & Güzelleştirici",
-            item7_title: "JSON / XML Görüntüleyici & Biçimlendirici",
-            item8_title: "URL Kodlayıcı & Çözücü",
-            item9_title: "Base 64 Kodlayıcı & Çözücü",
-            item10_title: "Metin Büyüklük/Küçüklük Dönüştürücü",
-            item11_title: "Şifre Güç Testi"
-        },
-        products: {
-            title: "Dijital Mağaza",
-            subtitle: "En Yeni E-Kitaplar, Prompt Kütüphaneleri ve Tasarım Kaynakları.",
-            cta: "Gumroad'da Tümünü Gör ->"
-        },
-        product: {
-            tag_photoset: "Fotoğraf Setleri",
-            tag_aistory: "YZ Hikaye Paketi",
-            tag_aiprompt: "YZ Komut Paketi"
-        },
-        ai_models: {
-            title: "Yapay Zeka Modellerimiz",
-            miray_desc: "Moda & Seyahat & Cosplay",
-            husamettin_desc: "Matematik Öğretmeni"
-        },
-        footer: {
-            tagline: "Dijital Çözümler & Gelecek Laboratuvarları",
-            email: "E-posta",
-            copyright: "&copy; 2025 Nexyond Dijital Çözümler. Tüm hakları saklıdır."
-        }
+        nav_vision: "VİZYON", nav_services: "HİZMETLER", nav_process: "SÜREÇ", nav_contact: "İLETİŞİM", nav_cta: "Hemen Başla",
+        hero_status: "SİSTEMLER AKTİF", hero_title_1: "İşinizi Dijitalin", hero_title_2: "Zirvesine Taşıyın.",
+        hero_desc: "Web sitesi, mobil uygulama veya dijital kartvizit... Rakiplerinizin önüne geçmek için ihtiyacınız olan her şeyi tasarlıyor ve kodluyoruz.",
+        cta_main: "Teklif Alın", cta_sec: "Hizmetlerimiz", cta_mailto: "Hemen Başlayın (Teklif Alın)",
+        vision_title: "Geleneksel Kalma,<br><span class='text-gradient-blue'>Geleceğe Odaklan.</span>",
+        vision_desc_1: "Eski usül ticaret yöntemleri yavaş yavaş kayboluyor. Müşterileriniz artık sizi telefonda, Google'da veya sosyal medyada arıyor.",
+        vision_desc_2: "Eğer internette yoksanız, müşterileriniz için de yoksunuz demektir. Nexyond olarak sizi dijital dünyada görünür, ulaşılabilir ve prestijli kılıyoruz.",
+        vision_point_1: "7/24 Açık Dükkan (Web Sitesi)", vision_point_2: "Milyonlara Ulaşan Reklamlar", vision_point_3: "Kağıt Masrafsız Dijital Çözümler",
+        vision_card_title: "Dijital Dönüşüm", vision_card_desc: "Fiziksel sınırları kaldırın. Dünyanın her yerinden müşteri edinin.",
+        services_title: "Neler Yapıyoruz?", services_subtitle: "İşletmenizin ihtiyacı olan tüm dijital araçlar tek çatı altında.",
+        svc_web_title: "Web Sitesi Tasarımı & Kurulumu", svc_web_desc: "Müşterileriniz sizi Google'da aradığında profesyonel bir vitrinle karşılaşsın. Kurumsal siteler, bloglar veya ürün tanıtım sayfaları. Hızlı, şık ve tüm telefonlara uyumlu.",
+        svc_qr_title: "Dijital QR Kartvizit", svc_qr_desc: "Binlerce kağıt kartvizit bastırıp çöpe atmayın. QR kod ile tüm bilgileriniz karşı tarafa anında ulaşsın.",
+        tag_popular: "ÇOK POPÜLER", svc_app_title: "Mobil Uygulama (App)", svc_app_desc: "Fikrinizi cebinize sığdırıyoruz. iOS (iPhone) ve Android için size özel, hızlı çalışan uygulamalar yapıyoruz.",
+        svc_logo_title: "Logo & Marka Kimliği", svc_logo_desc: "Akılda kalıcı bir logo ve kurumsal renkler tasarlıyoruz. Müşterileriniz sizi ilk görüşte tanısın.",
+        svc_content_title: "AI İçerik & Sosyal Medya", svc_content_desc: "Yapay zeka ile profesyonel fotoğraflar, Instagram gönderileri ve marka içerikleri oluşturuyoruz. Sosyal medya hesaplarınızı canlandırıyoruz.",
+        svc_auto_title: "E-Ticaret & İş Otomasyonu", svc_auto_desc: "İnternetten ürün satın veya işlerinizi robotlara bırakın. Stok takibi, müşteri kaydı, otomatik WhatsApp mesajları gibi sıkıcı işleri yazılımlarımız yapsın.",
+        svc_gumroad_title: "Hazır Dijital Ürünler", svc_gumroad_desc: "E-Kitaplar, hazır fotoğraf setleri, sosyal medya şablonları gibi işinize hemen yarayacak yüzlerce ürüne ulaşın.", svc_gumroad_cta: "Tüm Ürünleri İncele →",
+        process_title: "Nasıl Çalışıyoruz?",
+        step_1_title: "Tanışma & Fikir", step_1_desc: "Sizi dinliyoruz. Neye ihtiyacınız olduğunu (Site mi? Kartvizit mi?) belirliyoruz.",
+        step_2_title: "Tasarım & Yapım", step_2_desc: "Sizin onayınıza göre tasarımı hazırlıyor ve kodlamasını yapıyoruz.",
+        step_3_title: "Teslim & Destek", step_3_desc: "İşinizi teslim ediyoruz ve kullanımını öğretiyoruz. Takıldığınız yerde destek oluyoruz.",
+        footer_tagline: "İşinizi büyütmek için gereken tüm dijital çözümler burada.", footer_links_title: "Hızlı Bağlantılar", footer_link_services: "Hizmetlerimiz", footer_link_process: "Çalışma Sürecimiz", footer_link_contact: "İletişim",
+        assist_header: "Nexyond Dijital Asistan", assist_initial: "Merhaba! Size nasıl yardımcı olabilirim? Lütfen bir konu seçin:",
+        assist_opt_web: "Web Sitesi", assist_opt_card: "Dijital Kartvizit", assist_opt_app: "Mobil Uygulama", assist_opt_logo: "Logo Tasarım", assist_opt_content: "AI İçerik", assist_opt_price: "Fiyatlar & Süre", assist_opt_contact: "İletişime Geç",
+        assist_res_web: "Web sitesi bir dükkanınızın internetteki şubesidir. Müşterileriniz 7/24 ürünlerinizi, hizmetlerinizi ve hakkınızdaki bilgileri görebilir. Size özel, güncel teknolojiyle, tüm cihazlara uyumlu (telefon/tablet) siteler hazırlıyoruz. En önemlisi, sitenizi Google'da üst sıralara çıkacak şekilde kuruyoruz.",
+        assist_res_kartvizit: "Dijital Kartvizit, QR kod teknolojisi ile anında çalışan modern bir çözümdür. Müşteri QR kodu okuttuğunda, iletişim bilgileriniz, sosyal medya linkleriniz ve web siteniz tek bir sayfada görünür. Hem çevre dostu hem de çok daha prestijli. Kağıt israfını tamamen ortadan kaldırır.",
+        assist_res_app: "Mobil uygulama geliştirme hizmetimizle fikirlerinizi iOS ve Android platformlarına taşıyoruz. Kullanıcı dostu arayüzler, yüksek performans ve güvenlik önceliğiyle profesyonel uygulamalar geliştiriyoruz. E-ticaret, sosyal ağ, iş yönetimi ve daha birçok alanda özel çözümler sunuyoruz.",
+        assist_res_logo: "Logo ve marka kimliği tasarımıyla işletmenizin görsel kimliğini güçlendiriyoruz. Modern, akılda kalıcı ve sektörünüze uygun logo tasarımları oluşturuyoruz. Renk paleti, tipografi ve kurumsal kimlik çalışmalarıyla marka değerinizi artırıyoruz.",
+        assist_res_content: "Yapay zeka destekli içerik üretimi ve sosyal medya yönetimi hizmeti sunuyoruz. Profesyonel fotoğraflar, Instagram gönderileri, bannerlar ve marka içerikleri oluşturuyoruz. Sosyal medya stratejinizi geliştirip hesaplarınızı etkileyici içeriklerle canlandırıyoruz.",
+        assist_res_fiyat: "Fiyatlandırma, projenin büyüklüğüne ve istediğiniz özelliklere göre değişir. Web sitesi projeleri genellikle 1-3 hafta, mobil uygulamalar 1-3 ay sürebilir. Dijital kartvizit ise 2-3 gün içinde teslim edilir. En doğru fiyat ve süre için detaylı teklif almanızı öneririz.",
+        assist_res_contact: "Bize ulaşmak çok kolay! nexyond@gmail.com adresinden bize mail atabilir veya sayfadaki 'Hemen Başlayın' butonlarına tıklayarak detaylı teklif isteğinizi iletebilirsiniz. Profesyonel ekibimiz 24 saat içinde sizinle iletişime geçecektir.",
+    },
+    en: {
+        nav_vision: "VISION", nav_services: "SERVICES", nav_process: "PROCESS", nav_contact: "CONTACT", nav_cta: "Get Started",
+        hero_status: "SYSTEMS ONLINE", hero_title_1: "Forge Your", hero_title_2: "Digital Destiny.",
+        hero_desc: "Websites, mobile apps, or digital business cards... We design and code everything you need to stay ahead of the competition.",
+        cta_main: "Get a Quote", cta_sec: "Our Services", cta_mailto: "Get Started (Request Quote)",
+        vision_title: "Adapt or Fade,<br><span class='text-gradient-blue'>Evolve Now.</span>",
+        vision_desc_1: "Traditional business methods are fading. Your customers are looking for you on their phones, Google, and social media.",
+        vision_desc_2: "If you aren't online, you don't exist. Nexyond makes you visible, accessible, and prestigious in the digital world.",
+        vision_point_1: "24/7 Open Store (Website)", vision_point_2: "Reach Millions with Ads", vision_point_3: "Paperless Digital Solutions",
+        vision_card_title: "Digital Shift", vision_card_desc: "Remove physical limits. Acquire customers globally.",
+        services_title: "What We Do", services_subtitle: "All the digital tools your business needs under one roof.",
+        svc_web_title: "Website Design & Development", svc_web_desc: "Let customers find a professional showcase when they Google you. Corporate sites, blogs, or landing pages. Fast, stylish, and mobile-friendly.",
+        svc_qr_title: "Digital QR Business Card", svc_qr_desc: "Stop wasting paper cards. Scan QR code, and transfer all your contact info instantly.",
+        tag_popular: "MOST POPULAR", svc_app_title: "Mobile App Development", svc_app_desc: "We fit your idea into a pocket. Custom, fast-running apps for iOS (iPhone) and Android.",
+        svc_logo_title: "Logo & Brand Identity", svc_logo_desc: "We design memorable logos and corporate colors. Let customers recognize you at first sight.",
+        svc_content_title: "AI Content & Social Media", svc_content_desc: "We create professional photos, Instagram posts and brand content with artificial intelligence. We revitalize your social media accounts.",
+        svc_auto_title: "E-Commerce & Automation", svc_auto_desc: "Sell products online or let robots do the work. We automate boring tasks like stock tracking, client records, and auto-messages.",
+        svc_gumroad_title: "Ready-Made Digital Products", svc_gumroad_desc: "Access hundreds of products like E-books, photo sets, and social media templates that you can use immediately for your business.", svc_gumroad_cta: "View All Products →",
+        process_title: "How We Work",
+        step_1_title: "Meet & Plan", step_1_desc: "We listen to you. We determine exactly what you need (A site? A card?).",
+        step_2_title: "Design & Build", step_2_desc: "We prepare the design based on your approval and code it.",
+        step_3_title: "Launch & Support", step_3_desc: "We deliver the project and teach you how to use it. We provide support whenever you need it.",
+        footer_tagline: "All digital solutions to grow your business are here.", footer_links_title: "Quick Links", footer_link_services: "Our Services", footer_link_process: "Our Process", footer_link_contact: "Contact",
+        assist_header: "Nexyond Digital Assistant", assist_initial: "Hello! How may I help you? Please select a topic:",
+        assist_opt_web: "Website", assist_opt_card: "Digital Business Card", assist_opt_app: "Mobile App", assist_opt_logo: "Logo Design", assist_opt_content: "AI Content", assist_opt_price: "Pricing & Duration", assist_opt_contact: "Get in Touch",
+        assist_res_web: "A website is the internet branch of your store. Your customers can view your products, services, and information about you 24/7. We prepare custom, up-to-date, device-compatible (phone/tablet) sites for you. Most importantly, we set up your site to rank higher on Google.",
+        assist_res_kartvizit: "Digital Business Card is a modern solution that works instantly with QR code technology. When a customer scans the QR code, your contact information, social media links, and website appear on a single page. It's both eco-friendly and far more prestigious. Completely eliminates paper waste.",
+        assist_res_app: "With our mobile app development service, we bring your ideas to iOS and Android platforms. We develop professional applications with user-friendly interfaces, high performance and security priority. We offer custom solutions in e-commerce, social networks, business management and many other areas.",
+        assist_res_logo: "We strengthen your business's visual identity with logo and brand identity design. We create modern, memorable and industry-appropriate logo designs. We increase your brand value with color palette, typography and corporate identity studies.",
+        assist_res_content: "We offer AI-powered content production and social media management services. We create professional photos, Instagram posts, banners and brand content. We develop your social media strategy and revitalize your accounts with impressive content.",
+        assist_res_fiyat: "Pricing varies according to the size of the project and the features you request. Website projects usually take 1-3 weeks, mobile applications 1-3 months. Digital business cards are delivered within 2-3 days. We recommend getting a detailed quote for the most accurate price and duration.",
+        assist_res_contact: "It's easy to reach us! You can email us at nexyond@gmail.com or click the 'Get Started' buttons on the page to submit your detailed quote request. Our professional team will contact you within 24 hours.",
     }
 };
+let currentLang = 'tr';
 
-let currentLang = 'en';
-
-function getTranslation(key, lang) {
-    const keys = key.split('.');
-    let result = translations[lang];
-    for (let i = 0; i < keys.length; i++) {
-        if (!result || !result.hasOwnProperty(keys[i])) {
-            return null;
-        }
-        result = result[keys[i]];
-    }
-    return result;
-}
-
-function translatePage(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        const translation = getTranslation(key, lang);
-        if (translation) {
-            if (element.parentElement && element.parentElement.tagName === 'H1' && key === 'hero.title_part1') {
-                const nextSpan = element.querySelector('span[data-i18n="hero.title_part2"]');
-                if (nextSpan) {
-                    element.innerHTML = translation + nextSpan.outerHTML;
-                } else {
-                    element.textContent = translation;
-                }
+function setLanguage(lang) {
+    currentLang = lang;
+    const data = dictionary[lang];
+    if (!data) return;
+    document.getElementById('lang-tr').classList.remove('font-bold', 'text-white');
+    document.getElementById('lang-en').classList.remove('font-bold', 'text-white');
+    document.getElementById('lang-tr').classList.add('text-gray-500');
+    document.getElementById('lang-en').classList.add('text-gray-500');
+    document.getElementById('lang-' + lang).classList.add('font-bold', 'text-white');
+    document.getElementById('lang-' + lang).classList.remove('text-gray-500');
+    
+    document.querySelectorAll('[data-lang]').forEach(el => {
+        const key = el.getAttribute('data-lang');
+        if (data[key]) {
+            if (key === 'vision_title' || key === 'hero_title_2') {
+                el.innerHTML = data[key];
             } else {
-                element.textContent = translation;
+                el.textContent = data[key];
             }
         }
     });
-
-    document.getElementById('lang-tr').classList.remove('text-white', 'hover:text-white');
-    document.getElementById('lang-en').classList.remove('text-white', 'hover:text-white');
-    document.getElementById('lang-tr').classList.add('hover:text-white', 'text-gray-400');
-    document.getElementById('lang-en').classList.add('hover:text-white', 'text-gray-400');
-
-    if (lang === 'tr') {
-        document.getElementById('lang-tr').classList.add('text-white');
-        document.getElementById('lang-tr').classList.remove('text-gray-400');
-    } else {
-        document.getElementById('lang-en').classList.add('text-white');
-        document.getElementById('lang-en').classList.remove('text-gray-400');
-    }
-    
-    currentLang = lang;
-    document.documentElement.lang = lang;
+    resetAssistant();
 }
-
-function setLanguage(lang) {
-    translatePage(lang);
-    if (document.getElementById('mobile-menu').classList.contains('translate-x-0')) {
-        toggleMenu();
-    }
-}
-
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('lang-tr').classList.add('font-bold', 'text-white');
+    document.getElementById('lang-tr').classList.remove('text-gray-500');
+});
 function toggleMenu() {
-    const menu = document.getElementById('mobile-menu');
-    if (menu.classList.contains('-translate-x-full')) {
-        menu.classList.remove('-translate-x-full');
+    document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+}
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 50) { 
+        nav.classList.add('glass'); 
+        nav.classList.remove('bg-transparent'); 
+    }
+});
+const assistantModal = document.getElementById('assistant-modal');
+const chatWindow = document.getElementById('chat-window');
+function toggleAssistant() {
+    assistantModal.classList.toggle('open');
+    if(assistantModal.classList.contains('open')) {
+        resetAssistant();
+    }
+}   
+function resetAssistant() {
+    const initialMessageKey = 'assist_initial';
+    const initialMessage = dictionary[currentLang][initialMessageKey] || dictionary['tr'][initialMessageKey];
+    chatWindow.innerHTML = `<div class="chat-message message-bot">${initialMessage}</div>`;
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+function handleOptionClick(optionKey) {
+    const langDict = dictionary[currentLang];
+    const userTextKey = 'assist_opt_' + optionKey;
+    const userText = langDict[userTextKey] || dictionary['tr'][userTextKey];
+    const responseTextKey = 'assist_res_' + optionKey;
+    const responseText = langDict[responseTextKey] || dictionary['tr'][responseTextKey];
+    const userMessage = document.createElement('div');
+    userMessage.className = 'chat-message message-user ml-auto max-w-[85%]';
+    userMessage.textContent = userText;
+    chatWindow.appendChild(userMessage);
+    const botMessage = document.createElement('div');
+    botMessage.className = 'chat-message message-bot mr-auto max-w-[85%]';
+    if(optionKey === 'contact') {
+        botMessage.innerHTML = `${responseText} <br><br> <a href="mailto:nexyond@gmail.com" class="text-blue-400 underline hover:text-blue-300">nexyond@gmail.com</a>`;
     } else {
-        menu.classList.add('-translate-x-full');
+        botMessage.textContent = responseText;
+    }
+    chatWindow.appendChild(botMessage);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let width, height;
+let particles = [];
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+}
+class Particle {
+    constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.size = Math.random() * 2;
+    }
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+    draw() {
+        ctx.fillStyle = 'rgba(100, 116, 139, 0.3)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
     }
 }
-
-const observerOptions = {
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+function initParticles() {
+    particles = [];
+    const particleCount = Math.min(window.innerWidth / 10, 100);
+    for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+}
+function animate() {
+    ctx.clearRect(0, 0, width, height);
+    particles.forEach((p, index) => {
+        p.update(); p.draw();
+        for (let j = index + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+                ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 - dist/1500})`;
+                ctx.lineWidth = 0.5;
+                ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+            }
         }
     });
-}, observerOptions);
-
-document.querySelectorAll('.reveal').forEach((el) => {
-    observer.observe(el);
-});
-
+    requestAnimationFrame(animate);
+}
+window.addEventListener('resize', () => { resize(); initParticles(); });
 document.addEventListener('DOMContentLoaded', () => {
-    translatePage(currentLang);
+    setLanguage(currentLang);
+    resize(); initParticles(); animate();
 });
