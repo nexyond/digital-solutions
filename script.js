@@ -5,13 +5,15 @@ const dictionary = {
         hero_desc: "Web sitesi, mobil uygulama veya dijital kartvizit... Rakiplerinizin önüne geçmek için ihtiyacınız olan her şeyi tasarlıyor ve kodluyoruz.",
         cta_main: "Teklif Alın", cta_sec: "Hizmetlerimiz", cta_mailto: "Hemen Başlayın (Teklif Alın)",
         vision_title: "Geleneksel Kalma,<br><span class='text-gradient-blue'>Geleceğe Odaklan.</span>",
-        vision_desc_1: "Eski usül ticaret yöntemleri yavaş yavaş kayboluyor. Müşterileriniz artık sizi telefonda, Google'da veya sosyal medyada arıyor.",
-        vision_desc_2: "Eğer internette yoksanız, müşterileriniz için de yoksunuz demektir. Nexyond olarak sizi dijital dünyada görünür, ulaşılabilir ve prestijli kılıyoruz.",
-        vision_point_1: "7/24 Açık Dükkan (Web Sitesi)", vision_point_2: "Milyonlara Ulaşan Reklamlar", vision_point_3: "Kağıt Masrafsız Dijital Çözümler",
+        vision_desc_1: "Eski usül ticaret yöntemleri yavaş yavaş kayboluyor. Müşterileriniz artık sizi telefonda, Google'da veya sosyal medyada arıyor. Fiziksel ofis sınırlarını kaldırarak, AI gücüyle işlerinizi ışık hızında dijitale taşıyoruz.",        vision_desc_2: "Eğer internette yoksanız, müşterileriniz için de yoksunuz demektir. Nexyond olarak sizi dijital dünyada görünür, ulaşılabilir ve prestijli kılıyoruz.",
+        vision_point_1: "7/24 Açık Dükkan (Web Sitesi)",
+        vision_point_2: "Milyonlara Ulaşan Reklamlar",
+        vision_point_3: "Kağıt Masrafsız Dijital Çözümler",
         vision_card_title: "Dijital Dönüşüm", vision_card_desc: "Fiziksel sınırları kaldırın. Dünyanın her yerinden müşteri edinin.",
         services_title: "Neler Yapıyoruz?", services_subtitle: "İşletmenizin ihtiyacı olan tüm dijital araçlar tek çatı altında.",
         svc_web_title: "Web Sitesi Tasarımı & Kurulumu", svc_web_desc: "Müşterileriniz sizi Google'da aradığında profesyonel bir vitrinle karşılaşsın. Kurumsal siteler, bloglar veya ürün tanıtım sayfaları. Hızlı, şık ve tüm telefonlara uyumlu.",
-        svc_qr_title: "Dijital QR Kartvizit", svc_qr_desc: "Binlerce kağıt kartvizit bastırıp çöpe atmayın. QR kod ile tüm bilgileriniz karşı tarafa anında ulaşsın.",
+        svc_qr_title: "Dijital Kartvizit (NFC & QR)",
+        svc_qr_desc: "Temassız NFC teknolojisi ve QR kod ile bilgilerinizi saniyeler içinde paylaşın. Kağıt israfına son verin.",
         tag_popular: "ÇOK POPÜLER", svc_app_title: "Mobil Uygulama (App)", svc_app_desc: "Fikrinizi cebinize sığdırıyoruz. iOS (iPhone) ve Android için size özel, hızlı çalışan uygulamalar yapıyoruz.",
         svc_logo_title: "Logo & Marka Kimliği", svc_logo_desc: "Akılda kalıcı bir logo ve kurumsal renkler tasarlıyoruz. Müşterileriniz sizi ilk görüşte tanısın.",
         svc_content_title: "AI İçerik & Sosyal Medya", svc_content_desc: "Yapay zeka ile profesyonel fotoğraflar, Instagram gönderileri ve marka içerikleri oluşturuyoruz. Sosyal medya hesaplarınızı canlandırıyoruz.",
@@ -35,6 +37,18 @@ const dictionary = {
         stat_response: "Saat Tepki", 
         stat_projects: "Proje Teslim",
         stat_satisfaction: "Memnuniyet",
+        work_title: "Vizyoner Projeler",
+        work_subtitle: "Nexyond mutfağında hazırlanan, dijital trendleri belirleyen konsept çalışmalarımız.",
+        proj_nexyond_title: "Nexyond Digital Platform",
+        proj_nexyond_desc: "Kendi dijital kimliğimizi inşa ettiğimiz, modern UI/UX standartlarında yüksek performanslı web platformu.",
+        proj_kaplanlar_web_title: "Kaplanlar Tekstil Web",
+        proj_kaplanlar_web_desc: "Tekstil sektörü için tasarlanmış, ürün odaklı ve kurumsal kimliği ön plana çıkaran web çözümü.",
+        proj_kaplanlar_db_title: "Kaplanlar Stok & Yönetim",
+        proj_kaplanlar_db_desc: "İşletme süreçlerini hızlandıran, gerçek zamanlı stok takibi ve üretim yönetim paneli.",
+        proj_flowart_title: "Flowart İş Yönetimi",
+        proj_flowart_desc: "Flowart için geliştirilen, veri analitiği ve süreç takibi odaklı özel yazılım çözümü.",
+        proj_cafe_title: "Cafe De La Rosa Mobile",
+        proj_cafe_desc: "Hızlı sipariş ve sadakat programı entegrasyonuna sahip, modern kafe deneyimi sunan mobil uygulama.",
     },
     en: {
         stat_customers: "Customer Growth",
@@ -46,18 +60,27 @@ const dictionary = {
         hero_desc: "Websites, mobile apps, or digital business cards... We design and code everything you need to stay ahead of the competition.",
         cta_main: "Get a Quote", cta_sec: "Our Services", cta_mailto: "Get Started (Request Quote)",
         vision_title: "Adapt or Fade,<br><span class='text-gradient-blue'>Evolve Now.</span>",
-        vision_desc_1: "Traditional business methods are fading. Your customers are looking for you on their phones, Google, and social media.",
-        vision_desc_2: "If you aren't online, you don't exist. Nexyond makes you visible, accessible, and prestigious in the digital world.",
+        vision_desc_1: "Traditional business methods are fading. Your customers look for you online. We reject physical office constraints, using AI power to move your business to digital at light speed.",        vision_desc_2: "If you aren't online, you don't exist. Nexyond makes you visible, accessible, and prestigious in the digital world.",
         vision_point_1: "24/7 Open Store (Website)", vision_point_2: "Reach Millions with Ads", vision_point_3: "Paperless Digital Solutions",
         vision_card_title: "Digital Shift", vision_card_desc: "Remove physical limits. Acquire customers globally.",
         services_title: "What We Do", services_subtitle: "All the digital tools your business needs under one roof.",
-        svc_web_title: "Website Design & Development", svc_web_desc: "Let customers find a professional showcase when they Google you. Corporate sites, blogs, or landing pages. Fast, stylish, and mobile-friendly.",
-        svc_qr_title: "Digital QR Business Card", svc_qr_desc: "Stop wasting paper cards. Scan QR code, and transfer all your contact info instantly.",
-        tag_popular: "MOST POPULAR", svc_app_title: "Mobile App Development", svc_app_desc: "We fit your idea into a pocket. Custom, fast-running apps for iOS (iPhone) and Android.",
-        svc_logo_title: "Logo & Brand Identity", svc_logo_desc: "We design memorable logos and corporate colors. Let customers recognize you at first sight.",
-        svc_content_title: "AI Content & Social Media", svc_content_desc: "We create professional photos, Instagram posts and brand content with artificial intelligence. We revitalize your social media accounts.",
-        svc_auto_title: "E-Commerce & Automation", svc_auto_desc: "Sell products online or let robots do the work. We automate boring tasks like stock tracking, client records, and auto-messages.",
-        svc_gumroad_title: "Ready-Made Digital Products", svc_gumroad_desc: "Access hundreds of products like E-books, photo sets, and social media templates that you can use immediately for your business.", svc_gumroad_cta: "View All Products →",
+        svc_web_title: "Web Design & Development",
+        svc_web_desc: "Building your digital headquarters. High-performance, SEO-optimized, and modern web experiences that look flawless on every device.",
+
+        svc_app_title: "Mobile App Solutions",
+        svc_app_desc: "Turning ideas into portable technology. High-speed, UX-focused mobile applications for both iOS and Android platforms.",
+
+        svc_auto_title: "E-Commerce & Automation",
+        svc_auto_desc: "Automate your sales and operations. Smart systems that grow your business even while you sleep, from inventory to WhatsApp bots.",
+
+        svc_qr_title: "Digital Business Card (NFC & QR)",
+        svc_qr_desc: "Modernize your networking. Share your info with a single tap; save costs and maintain high-end digital prestige.",
+
+        svc_logo_title: "Brand Identity & Logo Design",
+        svc_logo_desc: "Give your brand a soul. More than just a logo—we create corporate palettes and visual identities that connect with your audience.",
+
+        svc_content_title: "AI-Powered Content & Strategy",
+        svc_content_desc: "Stand out on social media with the power of AI. We make your brand visible through data-driven content plans and aesthetic visual production.",svc_gumroad_title: "Ready-Made Digital Products", svc_gumroad_desc: "Access hundreds of products like E-books, photo sets, and social media templates that you can use immediately for your business.", svc_gumroad_cta: "View All Products →",
         process_title: "How We Work",
         step_1_title: "Meet & Plan", step_1_desc: "We listen to you. We determine exactly what you need (A site? A card?).",
         step_2_title: "Design & Build", step_2_desc: "We prepare the design based on your approval and code it.",
@@ -72,6 +95,18 @@ const dictionary = {
         assist_res_content: "We offer AI-powered content production and social media management services. We create professional photos, Instagram posts, banners and brand content. We develop your social media strategy and revitalize your accounts with impressive content.",
         assist_res_fiyat: "Pricing varies according to the size of the project and the features you request. Website projects usually take 1-3 weeks, mobile applications 1-3 months. Digital business cards are delivered within 2-3 days. We recommend getting a detailed quote for the most accurate price and duration.",
         assist_res_contact: "It's easy to reach us! You can email us at nexyond@gmail.com or click the 'Get Started' buttons on the page to submit your detailed quote request. Our professional team will contact you within 24 hours.",
+        work_title: "Visionary Projects",
+        work_subtitle: "Concept works prepared in Nexyond lab, setting the digital trends.",
+        proj_nexyond_title: "Nexyond Digital Platform",
+        proj_nexyond_desc: "The high-performance web platform where we built our own digital identity with modern UI/UX standards.",
+        proj_kaplanlar_web_title: "Kaplanlar Textile Web",
+        proj_kaplanlar_web_desc: "A product-oriented web solution designed for the textile industry, highlighting corporate identity.",
+        proj_kaplanlar_db_title: "Kaplanlar Stock Management",
+        proj_kaplanlar_db_desc: "A real-time stock tracking and production management panel that accelerates business processes.",
+        proj_flowart_title: "Flowart Business Management",
+        proj_flowart_desc: "A custom software solution focused on data analytics and process tracking developed for Flowart.",
+        proj_cafe_title: "Cafe De La Rosa Mobile",
+        proj_cafe_desc: "A mobile application offering a modern cafe experience with fast ordering and loyalty program integration."
     }
 };
 let currentLang = 'tr';
@@ -170,6 +205,92 @@ function animateCounters() {
         }, 40);
     });
 }
+
+let activeSlide = 1;
+function rotateSlides() {
+    const s1 = document.getElementById('slide-1');
+    const s2 = document.getElementById('slide-2');
+    let nextTimeout = 5000;
+
+    if (activeSlide === 1) {
+        s1.classList.replace('opacity-100', 'opacity-0');
+        s1.classList.add('pointer-events-none', 'scale-95');
+        
+        s2.classList.replace('opacity-0', 'opacity-100');
+        s2.classList.remove('pointer-events-none', 'scale-95');
+        
+        activeSlide = 2;
+        nextTimeout = 9000;
+    } else {
+        s2.classList.replace('opacity-100', 'opacity-0');
+        s2.classList.add('pointer-events-none', 'scale-95');
+        
+        s1.classList.replace('opacity-0', 'opacity-100');
+        s1.classList.remove('pointer-events-none', 'scale-95');
+        
+        activeSlide = 1;
+        nextTimeout = 6000;
+    }
+
+    setTimeout(rotateSlides, nextTimeout);
+}
+setTimeout(rotateSlides, 6000);
+
+
+let currentProjectSlide = 0;
+let projectInterval;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.project-slide');
+    const dots = document.querySelectorAll('.project-dot');
+    
+    if (!slides.length || !dots.length) return;
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('opacity-100', 'scale-100');
+        slides[i].classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        dots[i].style.width = "8px";
+        dots[i].classList.remove('bg-blue-500', 'w-6');
+        dots[i].classList.add('bg-white/20');
+    }
+
+    currentProjectSlide = index;
+    if (currentProjectSlide >= slides.length) currentProjectSlide = 0;
+    if (currentProjectSlide < 0) currentProjectSlide = slides.length - 1;
+
+    const activeSlide = slides[currentProjectSlide];
+    const activeDot = dots[currentProjectSlide];
+
+    activeSlide.classList.replace('opacity-0', 'opacity-100');
+    activeSlide.classList.replace('scale-95', 'scale-100');
+    activeSlide.classList.remove('pointer-events-none');
+
+    activeDot.classList.remove('bg-white/20');
+    activeDot.classList.add('bg-blue-500', 'w-6');
+    activeDot.style.width = "24px";
+
+    resetProjectInterval();
+}
+
+function nextProject() {
+    showSlide(currentProjectSlide + 1);
+}
+
+function prevProject() {
+    showSlide(currentProjectSlide - 1);
+}
+
+function resetProjectInterval() {
+    if (projectInterval) clearInterval(projectInterval);
+    projectInterval = setInterval(nextProject, 8000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.project-slide');
+    if (slides.length > 0) {
+        showSlide(0);
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     animateCounters();
 });
