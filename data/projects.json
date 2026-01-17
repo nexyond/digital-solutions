@@ -1,0 +1,52 @@
+{
+    "projects": [
+        {
+            "id": "kaplanlar_web",
+            "name_en": "Kaplanlar Tekstil Web",
+            "name_tr": "Kaplanlar Tekstil Web",
+            "desc_en": "A product-oriented web solution designed for the textile industry, highlighting corporate identity.",
+            "desc_tr": "Tekstil sektörü için tasarlanmış, ürün odaklı ve kurumsal kimliği ön plana çıkaran web çözümü.",
+            "img_url": "https://lh3.googleusercontent.com/u/0/d/12Bjkyj1gPmUjXvzk1REnhC2f4e4oGJwl"
+        },
+        {
+            "id": "cafe_menu",
+            "name_en": "QR Menu for Cafe",
+            "name_tr": "Kafeler için QR Menü",
+            "desc_en": "A menu accessible via QR code, controllable 24/7 from any device.",
+            "desc_tr": "Karekodla açılan, 7/24 her cihazdan kontrol edebileceğiniz menü.",
+            "img_url": "https://lh3.googleusercontent.com/u/0/d/1e5SySlC7bdFDOUUCpWq8Ffhee1m2M-hH"
+        },
+        {
+            "id": "nexyond_digital",
+            "name_en": "Nexyond Digital Platform",
+            "name_tr": "Nexyond Digital Platform",
+            "desc_en": "The high-performance web platform where we built our own digital identity with modern UI/UX standards.",
+            "desc_tr": "Kendi dijital kimliğimizi inşa ettiğimiz, modern UI/UX standartlarında yüksek performanslı web platformu.",
+            "img_url": "https://lh3.googleusercontent.com/u/0/d/1VZIDS7C7PyiIDhNYn323jU_bla10FRM4"
+        },
+        {
+            "id": "kaplanlar_db",
+            "name_en": "Kaplanlar Stock Management",
+            "name_tr": "Kaplanlar Stok & Yönetim",
+            "desc_en": "A real-time stock tracking and production management panel that accelerates business processes.",
+            "desc_tr": "İşletme süreçlerini hızlandıran, gerçek zamanlı stok takibi ve üretim yönetim paneli.",
+            "img_url": "https://lh3.googleusercontent.com/u/0/d/1Hc5o8NovxfT61xnQ_05EN-XpVdr7qHD9"
+        },
+        {
+            "id": "flowart_db",
+            "name_en": "Flowart Business Management",
+            "name_tr": "Flowart İş Yönetimi",
+            "desc_en": "A custom software solution focused on data analytics and process tracking developed for Flowart.",
+            "desc_tr": "Flowart için geliştirilen, veri analitiği ve süreç takibi odaklı özel yazılım çözümü.",
+            "img_url": "https://lh3.googleusercontent.com/u/0/d/1arrV9E672OAYyxIYMNyG2qs_HQ6whFLu"
+        },
+        {
+            "id": "cafe_app",
+            "name_en": "Cafe De La Rosa Mobile",
+            "name_tr": "Cafe De La Rosa Mobil",
+            "desc_en": "A mobile application offering a modern cafe experience with fast ordering and loyalty program integration.",
+            "desc_tr": "Hızlı sipariş ve sadakat programı entegrasyonuna sahip, modern kafe deneyimi sunan mobil uygulama.",
+            "img_url": "https://lh3.googleusercontent.com/u/0/d/1Lmgv6P2i6Jevtw6d9jCoXM5d-xKTmzh4"
+        }
+    ]
+}
