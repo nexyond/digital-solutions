@@ -208,81 +208,25 @@
         </div>
     </section>
     <section id="showcase-slider" class="py-24 relative overflow-hidden bg-black/20">
-        <div class="max-w-7xl mx-auto px-6 mb-12">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4" data-lang="work_title">Vizyoner Projeler</h2>
-            <p class="text-gray-400" data-lang="work_subtitle">Nexyond Lab'da tasarlanan konsept çalışmalarımız.</p>
-        </div>
-    
-        <div class="relative max-w-6xl mx-auto px-12 md:px-16">
-            <button onclick="prevProject()" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-white bg-black/40 backdrop-blur-sm">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-            </button>
-    
-            <button onclick="nextProject()" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-white bg-black/40 backdrop-blur-sm">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
-    
-            <div class="relative h-[450px] md:h-[600px]">
-                <div class="project-slide absolute inset-0 transition-all duration-700 opacity-100 scale-100">
-                    <div class="relative h-full w-full rounded-3xl overflow-hidden border border-white/5">
-                        <img src="src/nexyond_web.png" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-8 md:p-12">
-                            <h3 class="text-2xl md:text-4xl font-bold mb-3" data-lang="proj_nexyond_title">Nexyond Digital Platform</h3>
-                            <p class="text-gray-300 max-w-xl text-sm md:text-base" data-lang="proj_nexyond_desc">Kendi dijital kimliğimizi inşa ettiğimiz, modern UI/UX standartlarında yüksek performanslı web platformu.</p>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="project-slide absolute inset-0 transition-all duration-700 opacity-0 scale-95 pointer-events-none">
-                    <div class="relative h-full w-full rounded-3xl overflow-hidden border border-white/5">
-                        <img src="src/kaplanlar_web.png" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-8 md:p-12">
-                            <h3 class="text-2xl md:text-4xl font-bold mb-3" data-lang="proj_kaplanlar_web_title">Kaplanlar Tekstil Web</h3>
-                            <p class="text-gray-300 max-w-xl text-sm md:text-base" data-lang="proj_kaplanlar_web_desc">Tekstil sektörü için tasarlanmış, ürün odaklı ve kurumsal kimliği ön plana çıkaran web çözümü.</p>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="project-slide absolute inset-0 transition-all duration-700 opacity-0 scale-95 pointer-events-none">
-                    <div class="relative h-full w-full rounded-3xl overflow-hidden border border-white/5">
-                        <img src="src/kaplanlar_db.png" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-8 md:p-12">
-                            <h3 class="text-2xl md:text-4xl font-bold mb-3" data-lang="proj_kaplanlar_db_title">Kaplanlar Stok & Yönetim</h3>
-                            <p class="text-gray-300 max-w-xl text-sm md:text-base" data-lang="proj_kaplanlar_db_desc">İşletme süreçlerini hızlandıran, gerçek zamanlı stok takibi ve üretim yönetim paneli.</p>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="project-slide absolute inset-0 transition-all duration-700 opacity-0 scale-95 pointer-events-none">
-                    <div class="relative h-full w-full rounded-3xl overflow-hidden border border-white/5">
-                        <img src="src/flowart_db.png" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-8 md:p-12">
-                            <h3 class="text-2xl md:text-4xl font-bold mb-3" data-lang="proj_flowart_title">Flowart İş Yönetimi</h3>
-                            <p class="text-gray-300 max-w-xl text-sm md:text-base" data-lang="proj_flowart_desc">Flowart için geliştirilen, veri analitiği ve süreç takibi odaklı özel yazılım çözümü.</p>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="project-slide absolute inset-0 transition-all duration-700 opacity-0 scale-95 pointer-events-none">
-                    <div class="relative h-full w-full rounded-3xl overflow-hidden border border-white/5">
-                        <img src="src/cafe_app.png" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-8 md:p-12">
-                            <h3 class="text-2xl md:text-4xl font-bold mb-3" data-lang="proj_cafe_title">Cafe De La Rosa Mobile</h3>
-                            <p class="text-gray-300 max-w-xl text-sm md:text-base" data-lang="proj_cafe_desc">Hızlı sipariş ve sadakat programı entegrasyonuna sahip, modern kafe deneyimi sunan mobil uygulama.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex justify-center gap-3 mt-8" id="project-dots">
-                <button onclick="showSlide(0)" class="project-dot w-6 h-2 rounded-full bg-blue-500 transition-all duration-300"></button>
-                <button onclick="showSlide(1)" class="project-dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300"></button>
-                <button onclick="showSlide(2)" class="project-dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300"></button>
-                <button onclick="showSlide(3)" class="project-dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300"></button>
-                <button onclick="showSlide(4)" class="project-dot w-2 h-2 rounded-full bg-white/20 transition-all duration-300"></button>
-            </div>
-        </div>
-    </section>
+    <div class="max-w-7xl mx-auto px-6 mb-12">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4" data-lang="work_title">Vizyoner Projeler</h2>
+        <p class="text-gray-400" data-lang="work_subtitle">Nexyond Lab'da tasarlanan konsept çalışmalarımız.</p>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-12 md:px-16">
+        <button onclick="prevProject()" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-white bg-black/40 backdrop-blur-sm">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+
+        <button onclick="nextProject()" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-white bg-black/40 backdrop-blur-sm">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <div id="project-container" class="relative h-[450px] md:h-[600px]"></div>
+        
+        <div class="flex justify-center gap-3 mt-8" id="project-dots"></div>
+    </div>
+</section>
     <section id="process" class="py-24 border-t border-white/5 bg-black">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center" data-lang="process_title">Nasıl Çalışıyoruz?</h2>
