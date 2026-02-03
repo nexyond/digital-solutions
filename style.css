@@ -81,3 +81,38 @@ body {
 .message-user {
     background-color: #3b82f6; color: #fff; border-bottom-right-radius: 0;
 }
+
+#telegram-button {
+    position: fixed;
+    bottom: 20px; /* Asistan ile aynı */
+    left: 20px;
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex; /* İçindeki ikonun tam ortalanması için önemli */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(36, 161, 222, 0.4);
+    animation: pulse-ring-blue 1.5s infinite;
+}
+
+#telegram-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(36, 161, 222, 0.6);
+}
+
+/* Telegram'a özel Mavi Pulse Efekti */
+@keyframes pulse-ring-blue {
+    0% { box-shadow: 0 0 0 0 rgba(36, 161, 222, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(36, 161, 222, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(36, 161, 222, 0); }
+}
+
+@media (max-width: 768px) {
+    #telegram-button, #assistant-button {
+        width: 50px;
+        height: 50px;
+        bottom: 15px; /* İkisi de 15px olsun */
+    }
+}

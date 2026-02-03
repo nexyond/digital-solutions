@@ -48,12 +48,38 @@
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-gray-300">
                 <a href="#vision" class="hover:text-blue-400 transition-colors" data-lang="nav_vision">VİZYON</a>
                 <a href="#services" class="hover:text-blue-400 transition-colors" data-lang="nav_services">HİZMETLER</a>
+                <a href="#nexyond-lab" class="hover:text-blue-400 transition-colors" data-lang="nav_lab">HAZIR ÜRÜNLERİMİZ</a>
                 <a href="#process" class="hover:text-blue-400 transition-colors" data-lang="nav_process">SÜREÇ</a>
                 
-                <div class="flex items-center gap-2 border-l border-white/10 pl-6 ml-2">
+                <!-- <div class="flex items-center gap-2 border-l border-white/10 pl-6 ml-2">
                     <button class="text-white hover:text-blue-400 transition" onclick="setLanguage('tr')" id="lang-tr">TR</button>
                     <span class="text-gray-600">/</span>
                     <button class="text-gray-500 hover:text-white transition" onclick="setLanguage('en')" id="lang-en">EN</button>
+                </div> -->
+                <div class="relative group ml-6 pl-6 border-l border-white/10 hidden md:block">
+                    <button class="flex items-center space-x-2 text-xs text-gray-400 group-hover:text-white transition-all duration-300">
+                        <span id="current-lang-label" class="uppercase font-bold tracking-widest text-blue-500">TR</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    
+                    <div class="absolute right-0 mt-2 w-40 glass-card rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50 p-2 border border-white/10 shadow-2xl">
+                        <div class="grid grid-cols-1 gap-1">
+                            <button onclick="setLanguage('tr')" id="lang-tr" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">Türkçe <span class="text-[9px] text-gray-500">TR</span></button>
+                            <button onclick="setLanguage('en')" id="lang-en" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">English <span class="text-[9px] text-gray-500">EN</span></button>
+                            <button onclick="setLanguage('es')" id="lang-es" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">Español <span class="text-[9px] text-gray-500">ES</span></button>
+                            <button onclick="setLanguage('fr')" id="lang-fr" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">Français <span class="text-[9px] text-gray-500">FR</span></button>
+                            <button onclick="setLanguage('de')" id="lang-de" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">Deutsch <span class="text-[9px] text-gray-500">DE</span></button>
+                            <button onclick="setLanguage('it')" id="lang-it" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">Italiano <span class="text-[9px] text-gray-500">IT</span></button>
+                            <button onclick="setLanguage('pt')" id="lang-pt" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">Português <span class="text-[9px] text-gray-500">PT</span></button>
+                            <button onclick="setLanguage('ru')" id="lang-ru" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">Русский <span class="text-[9px] text-gray-500">RU</span></button>
+                            <button onclick="setLanguage('zh')" id="lang-zh" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">中文 <span class="text-[9px] text-gray-500">ZH</span></button>
+                            <button onclick="setLanguage('ja')" id="lang-ja" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">日本語 <span class="text-[9px] text-gray-500">JA</span></button>
+                            <button onclick="setLanguage('ar')" id="lang-ar" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase font-serif">العربية <span class="text-[9px] text-gray-500">AR</span></button>
+                            <button onclick="setLanguage('hi')" id="lang-hi" class="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-white/5 transition text-[11px] uppercase">हिन्दी <span class="text-[9px] text-gray-500">HI</span></button>
+                        </div>
+                    </div>
                 </div>
                 <a href="#contact" class="px-6 py-2.5 bg-white/10 border border-white/10 hover:bg-white hover:text-black rounded-full transition-all duration-300 backdrop-blur-md" data-lang="nav_cta">
                     Hemen Başla
@@ -73,10 +99,22 @@
             <a href="#services" onclick="toggleMenu()" data-lang="nav_services">HİZMETLER</a>
             <a href="#process" onclick="toggleMenu()" data-lang="nav_process">SÜREÇ</a>
             <a href="#contact" onclick="toggleMenu()" data-lang="nav_contact">İLETİŞİM</a>
-            <div class="flex items-center gap-4 justify-center text-2xl mt-4">
-                <button class="font-bold text-white" onclick="setLanguage('tr'); toggleMenu();">TR</button>
-                <span class="text-gray-600">/</span>
-                <button class="text-gray-500" onclick="setLanguage('en'); toggleMenu();">EN</button>
+            <div class="w-full max-w-[280px] mt-4 border-t border-white/10 pt-8 text-center">
+                <p class="text-[10px] text-gray-500 mb-4 tracking-[0.2em] font-mono uppercase">Select Language</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <button id="mobile-lang-tr" onclick="setLanguage('tr'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">TR</button>
+                    <button id="mobile-lang-en" onclick="setLanguage('en'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">EN</button>
+                    <button id="mobile-lang-es" onclick="setLanguage('es'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">ES</button>
+                    <button id="mobile-lang-fr" onclick="setLanguage('fr'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">FR</button>
+                    <button id="mobile-lang-de" onclick="setLanguage('de'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">DE</button>
+                    <button id="mobile-lang-it" onclick="setLanguage('it'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">IT</button>
+                    <button id="mobile-lang-pt" onclick="setLanguage('pt'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">PT</button>
+                    <button id="mobile-lang-ru" onclick="setLanguage('ru'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">RU</button>
+                    <button id="mobile-lang-zh" onclick="setLanguage('zh'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">ZH</button>
+                    <button id="mobile-lang-ja" onclick="setLanguage('ja'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">JA</button>
+                    <button id="mobile-lang-ar" onclick="setLanguage('ar'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase font-serif">AR</button>
+                    <button id="mobile-lang-hi" onclick="setLanguage('hi'); toggleMenu();" class="text-xs py-3 rounded-lg border border-white/5 bg-white/5 transition-all uppercase">HI</button>
+                </div>
             </div>
         </nav>
     </div>
@@ -207,6 +245,62 @@
             </div>
         </div>
     </section>
+    <section id="nexyond-lab" class="py-24 relative overflow-hidden bg-black/30">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4" data-lang="lab_title">Hazır Ürünlerimiz</h2>
+            <p class="text-gray-400" data-lang="lab_subtitle">Özel paketlerimizle dijital varlığınızı hemen oluşturun.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="glass-card rounded-[2rem] overflow-hidden border border-white/5 group hover:border-blue-500/50 transition-all duration-700">
+                <div class="p-4 border-b border-white/5 flex items-center justify-between bg-white/5">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+                        <span class="text-[10px] font-mono tracking-widest text-gray-400" data-lang="lab_solution_01">QR Dijital Menü</span>
+                    </div>
+                    <a href="https://digital-menu-alpha-lake.vercel.app/" target="_blank" class="text-[10px] bg-blue-600 hover:bg-blue-500 text-white px-4 py-1.5 rounded-full transition-all" data-lang="lab_inspect">İncele ↗</a>
+                </div>
+                <div class="relative aspect-video overflow-hidden">
+                    <iframe src="https://digital-menu-alpha-lake.vercel.app/" class="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.01]" loading="lazy"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3" data-lang="lab_menu_title">QR Dijital Menü</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed" data-lang="lab_menu_desc">İşletmeniz için 6 farklı profesyonel paketten oluşan, temassız ve hızlı QR menü sistemleri.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[9px] font-mono bg-white/5 px-2 py-1 rounded" data-lang="lab_01">6 PACKS</span>
+                        <span class="text-[9px] font-mono bg-white/5 px-2 py-1 rounded" data-lang="lab_02">QR TECH</span>
+                        <span class="text-[9px] font-mono bg-white/5 px-2 py-1 rounded" data-lang="lab_03">LIVE PREVIEW</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-[2rem] overflow-hidden border border-white/5 group hover:border-blue-500/50 transition-all duration-700">
+                <div class="p-4 border-b border-white/5 flex items-center justify-between bg-white/5">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+                        <span class="text-[10px] font-mono tracking-widest text-gray-400" data-lang="lab_solution_02">QR, NFC Destekli Dijital Kartvizit</span>
+                    </div>
+                    <a href="https://nexyond-digital-card.vercel.app/" target="_blank" class="text-[10px] bg-blue-600 hover:bg-blue-500 text-white px-4 py-1.5 rounded-full transition-all" data-lang="lab_inspect">İncele ↗</a>
+                </div>
+                <div class="relative aspect-video overflow-hidden">
+                    <iframe src="https://nexyond-digital-card.vercel.app/" class="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.01]" loading="lazy"></iframe>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-3" data-lang="lab_card_title">Dijital Kartvizit</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed" data-lang="lab_card_desc">3 farklı modern paket seçeneğiyle, kurumsal kimliğinizi QR veya NFC ile dijital dünyaya taşıyın.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[9px] font-mono bg-white/5 px-2 py-1 rounded" data-lang="lab_11">3 PACKS</span>
+                        <span class="text-[9px] font-mono bg-white/5 px-2 py-1 rounded" data-lang="lab_12">QR Integrated</span>
+                        <span class="text-[9px] font-mono bg-white/5 px-2 py-1 rounded" data-lang="lab_13">NETWORKING</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <section id="showcase-slider" class="py-24 relative overflow-hidden bg-black/20">
     <div class="max-w-7xl mx-auto px-6 mb-12">
         <h2 class="text-3xl md:text-5xl font-bold mb-4" data-lang="work_title">Vizyoner Projeler</h2>
@@ -272,7 +366,20 @@
                 <p class="text-gray-500 text-sm" data-lang="footer_tagline">
                     İşinizi büyütmek için gereken tüm dijital çözümler burada.
                 </p>
-                <a href="mailto:nexyond@gmail.com" class="mt-4 inline-block text-white border-b border-blue-500 pb-1 hover:text-blue-400">nexyond@gmail.com</a>
+                <div class="flex flex-col space-y-3"> <a href="mailto:nexyond@gmail.com" class="flex items-center gap-3 text-gray-400 hover:text-white transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        <span>nexyond@gmail.com</span>
+    </a>
+
+    <a href="https://t.me/nexyond_bot" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-[#24A1DE] transition">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M11.944 0C5.346 0 0 5.346 0 11.944c0 6.598 5.346 11.944 11.944 11.944 6.598 0 11.944-5.346 11.944-11.944C23.888 5.346 18.542 0 11.944 0zm5.206 8.35c-.15.8-.52 3.02-.91 5.09-.16.88-.47 1.18-.78 1.21-.68.06-1.19-.45-1.85-.88-1.03-.68-1.61-1.1-2.61-1.76-1.15-.76-.41-1.18.25-1.87.17-.18 3.16-2.9 3.22-3.17.01-.03.01-.16-.07-.22-.08-.07-.2-.05-.28-.03-.12.03-2.08 1.32-5.87 3.88-.55.38-1.05.57-1.49.56-.49-.01-1.43-.28-2.13-.5-.86-.28-1.54-.42-1.48-.89.03-.24.37-.49 1.02-.75 4.01-1.74 6.68-2.89 8.01-3.44 3.81-1.58 4.6-1.85 5.12-1.86.11 0 .37.03.54.17.14.12.18.28.2.44.02.13.02.43 0 .63z"/>
+        </svg>
+        <span>@nexyond_bot</span>
+    </a>
+</div>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4" data-lang="footer_links_title">Hızlı Bağlantılar</h4>
@@ -308,10 +415,18 @@
             <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('app')" data-lang="assist_opt_app">Mobil Uygulama</button>
             <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('logo')" data-lang="assist_opt_logo">Logo Tasarım</button>
             <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('content')" data-lang="assist_opt_content">AI İçerik</button>
+            <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('why')" data-lang="assist_opt_why">Neden Nexyond?</button>
+            <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('quality')" data-lang="assist_opt_quality">Hız vs Kalite</button>
             <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('fiyat')" data-lang="assist_opt_price">Fiyatlar & Süre</button>
             <button class="text-xs bg-gray-800 hover:bg-gray-700 text-white px-3 py-1.5 rounded-full transition" onclick="handleOptionClick('contact')" data-lang="assist_opt_contact">İletişime Geç</button>
         </div>
     </div>
+    <a href="https://t.me/nexyond_bot" target="_blank" id="telegram-button" class="flex items-center justify-center bg-[#24A1DE] text-white transition-all duration-300">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+    </svg>
+</a>
 </body>
 <script src="script.js"></script>
 </html>
